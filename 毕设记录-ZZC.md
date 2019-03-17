@@ -140,7 +140,7 @@ firewall-cmd选项解析
 
 > http://192.168.5.128:80（不能使用https，此时还没有安装https使用的证书，只能使用http）
 
-![访问nginx初始界面成功](毕设记录-ZZC.assets\1552794449393.png)
+![访问nginx初始界面成功](.\毕设记录-ZZC.assets\1552794449393.png)
 
 ### 3 安装Mysql
 
