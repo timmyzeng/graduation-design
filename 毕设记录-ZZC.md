@@ -451,3 +451,10 @@ centos 7预安装的mysql版本不高，同时如果没有安装mysql却存在my
 > [LNMP环境搭建](https://www.cnblogs.com/wujuntian/p/8183952.html) 主要参照的文章，本文基本是按照其流程进行安装
 >
 > [LNMP一键安装包下载](https://lnmp.org/download.html) 这里有一个一键安装包，但是想要更详细的了解LNMP的整个配置过程，所以就没有使用，偷懒的时候倒是可以考虑一下这个。
+
+
+
+## 19.4.10 更新PHP.md
+
+关于图片的上传，遇到问题权限不足，需要修改目录的权限为0755
+
