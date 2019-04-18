@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <meta charset = "utf8" />
+        <title>登录</title>
+    </head>
+    
+    <body>
+        <form name = "login" action = "index.php" method = "POST" enctype = "multipart/form-data">
+            <input type = "text" name = "username" placeholder = "请输入用户名"/>
+            <input type = "password" name = "password" placeholder = "请输入密码" />
+            <!-- 单选 -->
+            <input type = "radio" name = "sex" value = "1">男
+            <input type = "radio" name = "sex" value = "0">女
+            <!-- 文件上传 -->
+            <input type = "file" name = "img" />
+            <input type = "submit" name = "sub" value = "开始登陆" />
+        </form>
+    </body>
+</html>
