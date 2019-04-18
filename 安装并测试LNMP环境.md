@@ -128,7 +128,7 @@ firewall-cmd选项解析
 
 > http://192.168.5.128:80（不能使用https，此时还没有安装https使用的证书，只能使用http）
 
-![访问nginx初始界面成功](./安装并测试LNMP环境.assets/1552794449393.png)
+![访问nginx初始界面成功](安装并测试LNMP环境.assets/1552794449393.png)
 
 ### 3 安装Mysql
 
@@ -256,11 +256,11 @@ centos 7预安装的mysql版本不高，同时如果没有安装mysql却存在my
 
 如果是启动失败
 
-![mysql启动失败](./安装并测试LNMP环境.assets/1552813791289.png)
+![mysql启动失败](安装并测试LNMP环境.assets/1552813791289.png)
 
 使用sudo /usr/local/mysql/support-files/mysql.server restart启动可以看到详细错误原因：
 
-![启动失败详细原因](./安装并测试LNMP环境.assets/1552813835864.png)
+![启动失败详细原因](安装并测试LNMP环境.assets/1552813835864.png)
 
 如果是上面的错误，表示用于存放mysql.sock文件的目录/var/lib/mysql目录不存在。
 
@@ -278,7 +278,7 @@ centos 7预安装的mysql版本不高，同时如果没有安装mysql却存在my
 
 安装好之后不能直接使用mysql命令
 
-![不能直接使用mysql命令](./安装并测试LNMP环境.assets/1552813530751.png)
+![不能直接使用mysql命令](安装并测试LNMP环境.assets/1552813530751.png)
 
 需要通过路径再使用命令/usr/local/mysql/bin/mysql。这样很不方便，可以创建一个软链接到/usr/bin中，这样就可以直接使用mysql命令了。
 
@@ -342,7 +342,7 @@ centos 7预安装的mysql版本不高，同时如果没有安装mysql却存在my
 
 但是在文件中找不到user字段，不过文件最后一行：
 
-![php-fpm.conf](./安装并测试LNMP环境.assets/1552830266267.png)
+![php-fpm.conf](安装并测试LNMP环境.assets/1552830266267.png)
 
 > cd php-fpm.d
 >
@@ -362,15 +362,15 @@ centos 7预安装的mysql版本不高，同时如果没有安装mysql却存在my
 
 添加字段
 
-![添加](./安装并测试LNMP环境.assets/1552831442649.png)
+![添加](安装并测试LNMP环境.assets/1552831442649.png)
 
 去掉注释
 
-![去掉注释](./安装并测试LNMP环境.assets/1552831520762.png)
+![去掉注释](安装并测试LNMP环境.assets/1552831520762.png)
 
 修改内容
 
-![修改内容](./安装并测试LNMP环境.assets/1552831559428.png)
+![修改内容](安装并测试LNMP环境.assets/1552831559428.png)
 
 重新加载配置文件
 
@@ -424,7 +424,7 @@ centos 7预安装的mysql版本不高，同时如果没有安装mysql却存在my
 
 在浏览器输入http://ip地址/index.php，就可以看到php信息的输出了。
 
-![PHP测试页面](./安装并测试LNMP环境.assets/1552831742280.png)
+![PHP测试页面](安装并测试LNMP环境.assets/1552831742280.png)
 
 #### 4.10 PHP扩展安装
 
@@ -454,7 +454,7 @@ centos 7预安装的mysql版本不高，同时如果没有安装mysql却存在my
 >
 > sudo systemctl restart php-fpm	//重启php服务
 
-![格式化](./安装并测试LNMP环境.assets/1555504241768.png)
+![格式化](安装并测试LNMP环境.assets/1555504241768.png)
 
 显示变得格式化了，也使用phpinfo()之后，查看xdebug是否有被开启。
 
