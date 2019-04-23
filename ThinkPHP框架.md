@@ -410,7 +410,7 @@ TP变量的默认分隔符是{}，但是可以通过配置文件进行修改，/
 
 重点是字符串的替换。
 
-### 简单样例
+### 综合案例一
 
 使用TP显示如下页面：
 
@@ -470,7 +470,7 @@ class LoginController extends Controller{
 </html>
 ```
 
-3 在/Public/Admin/中添加css文件，注意此时的Public是根目录下的公共资源目录，Admin目录是分组目录。
+3 **在/Public/Admin/中添加css文件，注意此时的Public是根目录下的公共资源目录，Admin目录是分组目录。**
 
 4访问http://192.168.5.129/index.php/Admin/Login/login得到页面。
 
@@ -873,4 +873,802 @@ class DeptModel extends Model{
 空模型也能够进行数据库表的基本操作，因为他继承了Model父类。
 
 ### 模型的实例化操作
+
+#### 普通的实例化方法
+
+在/Application/Admin/Controller创建一个模型对应的DeptController.class.php控制器。
+
+```php
+<?php
+// 命名空间声明
+namespace Admin\Controller;
+// 引入父类控制器
+use Think\Controller;
+// 声明类并且继承父类
+class DeptController extends Controller{
+    // 展示实例化的结果
+    public function Instantiation(){
+        // 普通实例化方法
+        $model = new \Admin\Model\DeptModel();
+        dump($model);
+    }
+}
+?>
+```
+
+普通实例化方法需要使用相对路径去寻找DeptModel。
+
+展示的结果：
+
+![普通方法寻找Model](ThinkPHP框架.assets/1555685085875.png)
+
+#### 快速实例化方法
+
+有两种快速实例化方法：D方法、M方法
+
+D方法格式：
+
+> $obj = D(['模型名']);
+
+实例化自己创建的模型（分组/Model目录）；如果传递了模型名，则实例化指定的模型，如果没有制定或者模型不存在，则直接实力化父类模型（Model.class.php）
+
+M方法格式：
+
+> $obj = M(['不带前缀的表名']);
+
+直接实例化父类模型（Think目录下的Model.class.php）如果指定了表名，则实例化父类模型的时候关联指定的表，如果没有指定表名，则不关联表，一般用于执行原生的sql语句（M() -> query原生的sql语句）。
+
+```php
+<?php
+// 命名空间声明
+namespace Admin\Controller;
+// 引入父类控制器
+use Think\Controller;
+// 声明类并且继承父类
+class DeptController extends Controller{
+    // 展示实例化的结果
+    public function Instantiation(){
+        // 普通实例化方法
+        // $model = new \Admin\Model\DeptModel();
+        //
+        // 实例化自定义模型
+        // 1
+        $model = D('Dept'); // 其实例化结果和普通new是一样的
+        // 2
+        $model = D();   // 实例化父类模型
+        //
+        // 实例化父类模型
+        // 3
+        $model = M('Dept'); // 关联数据表
+        // 4
+        $model = M();   // 不关联数据表
+        dump($model);   
+    }
+}
+?>
+```
+
+D()方法传入合法的模型参数，实例化自定义模型同时关联数据表
+
+![D方法有合法参数](ThinkPHP框架.assets/1555725227392.png)
+
+D()方法不带参数，实例化父类模型同时不关联数据表
+
+![D()方法不带参数](ThinkPHP框架.assets/1555725285108.png)
+
+M()方法传入合法模型名，实例化父类模型同时关联数据表
+
+![M()方法传入合法模型](ThinkPHP框架.assets/1555725360766.png)
+
+M()方法不传入参数，实例化父类模型不关联数据表
+
+![M()方法不传入参数](ThinkPHP框架.assets/1555725403353.png)
+
+### CURD操作
+
+#### 增加操作
+
+mysql使用insert into，TP中使用add方法，格式如下：
+
+> $model -> add(一维数组);
+
+一维数组要求是键值对的数组，键必须和数据表中字段名要匹配，如果不匹配会被TP过滤掉。
+
+add()方法的返回值是主键id。
+
+```PHP
+public function Add(){
+    // 实例化模型
+    $model = M('Dept'); // 直接使用基本的增删改查可以使用父类模型
+    // 声明数组
+    $data = array(
+        'name'  => 'people',
+        'pid'   => '0',
+        'sort'  => '1',
+        'remark'=> 'this is people'
+    );
+    $result = $model -> add($data);   //增加操作
+    dump($result);
+}
+```
+
+访问地址：http://192.168.5.130/index.php/Admin/Dept/Add查看数据库得到新增数据。
+
+如果需要增加多条数组，可以使用循环的方式或者addAll方法，语法：
+
+> $model -> addAll(二维数组);
+
+二维数组最里面层是关联数组，外层数组必须是下标从0开始的连续索引数组。
+
+#### 修改操作
+
+mysql使用update，TP中使用的save方法，格式：
+
+> $model -> save(一维关联数组);
+
+一维关联数组必须要有**主键信息**。save返回值是影响的行数。
+
+#### 查询操作
+
+mysql使用select，TP中使用select、find。
+
+select格式，返回值是一个二维数组。
+
+> $model -> select();	//全部
+>
+> $model -> select(id);	//指定id
+>
+> $model -> select('id1, id2, id3 ...');	//指定id集
+
+find格式，返回值是一个一维数组。
+
+> $model -> find();	//当前表中的第一条记录
+>
+> $model -> find(id);	//指定id
+
+#### 删除操作
+
+mysql删除使用delete from，TP使用delete方法。格式如下：
+
+> $model -> delete(id);
+>
+> $model -> delete('id1, id2, id3, ...');
+
+删除分为两种，物理删除，逻辑删除。物理删除是真的删除，逻辑删除只是改变状态，让其查找不到。
+
+## 10 开发实用项
+
+### 跟踪信息
+
+跟踪信息：查看展示系统执行的相关信息。在TP中默认关闭。
+
+配置项：SHOW_PAGE_TRACE，这个选择不在主配置文件中存在，需要自己在项目配置config.php中添加配置。
+
+如：/Application/Common/Conf/config.php添加
+
+```php
+'SHOW_PAGE_TRACE'       =>  true
+```
+
+访问主页会发现右下角有一个图标：
+
+![信息跟踪](ThinkPHP框架.assets/1555727581395.png)
+
+点击会出来详细信息：
+
+![信息跟踪详细](ThinkPHP框架.assets/1555727611533.png)
+
+### 两种模式
+
+调试模式：开发调试阶段所使用的模式，错误信息较为详细。
+
+生产模式：上线使用的模式，错误信息比较模糊，使用了缓存，速度会比较快。
+
+配置在入口文件index.php中
+
+![模式](ThinkPHP框架.assets/1555727817955.png)
+
+### sql调试
+
+可以使用提供的getLastSql()或者_sql方法。格式：
+
+> $model -> getLastSql();
+>
+> $model -> _sql();
+
+返回最后一条成功执行的sql语句。
+
+也可以查看跟踪信息中的sql选项。
+
+## 11 AR模式
+
+AR模式：Active Record模式，是一个对象-关系映射（ORM）技术。每一个AR类代表一张数据表（或视图），其字段在AR类中体现为类的属性，一个AR实例表示表中的一行。
+
+AR模式的核心：三个映射
+
+- AR类 => 表
+- AR类的属性 => 表的字段
+- AR类实例 => 表的记录
+
+![AR类的理解](ThinkPHP框架.assets/1555728374063.png)
+
+AR模型的语法格式
+
+// 实例化模型
+
+$model = M(关联的表)；
+
+// 字段映射到属性
+
+$model -> 属性/表中字段 = 字段值；
+
+$model -> 属性/表中字段 = 字段值；
+
+...
+
+// AR实例(操作)映射到表中记录
+
+$model -> CURD操作；
+
+#### AR模式的CURD操作
+
+TP还支持AR模式的CURD操作。AR模式没有查询操作，查询操作需要使用TP原生的select、find操作。
+
+同时，一般修改和删除操作需要指定主键信息，但是如果在这之前使用了TP的select、find查询操作，不指定主键，会直接对查询的数据进行修改和删除操作。所以在进行修改和删除操作的时候一定要指定id，不然会出现奇怪的错误。
+
+如下：
+
+```php
+    public function AR_CURD(){
+        // 1：类映射表（类关联表）
+        $model = M('Dept');
+        // 2：属性映射字段
+        $model -> name = 'technology';
+        $model -> pid = '0';
+        $model -> sort = '10';
+        $model -> remark = 'this is technology';
+        // 3：实例映射记录
+        // add
+        $result = $model -> add();    // 没有参数
+        // save
+        $model -> id= '1';            // 修改操作需要确定主键信息
+        $result = $model -> save();   // 没有参数
+        // delete
+        $model -> id= '1';            // 删除操作需要确定主键信息
+        $result = $model -> delete(); // 没有参数
+        dump($result);
+    }
+
+```
+
+在父类中并没有name、pid、sort、remark等属性，但是TP使用PHP中的魔术方法_\_set进行添加。但是add()方法没有传递参数，如何进行添加，是因为add()方法对__set()方法产生的data数据进行了调用。
+
+## 12 辅助方法
+
+但是mysql中除了常见的CRUD操作之外，还有一些类似group、where、order、limit字句，所以TP封装了相应的子句方法。
+
+- where  限制查询的条件
+- limit     限制输出的条数
+- field      限制输出的字段
+- order    按照指定的字段进行指定排序
+- group   按照指定的字段进行分组查询
+
+### where方法
+
+语法：
+
+> $model -> where(条件表达式);	//字符串形式、数组形式都可以。
+>
+> $model -> CURD操作；
+
+条件表示式：where('id > 1');、where('id = 1');
+
+### limit方法
+
+语法：
+
+> $model -> limit(n);	//表示输出的前n行
+>
+> $model -> limit(起始位置， 偏移量);
+>
+> $model -> CURD操作；
+
+### field方法
+
+语法：
+
+> $model -> field('字段1， 字段2， 字段3[as 别名] ...');
+>
+> $model -> CURD操作；
+
+### order方法
+
+语法：
+
+> $model -> order('字段名 排序规则');
+>
+> $model -> CURD操作；
+
+### group方法
+
+语法：
+
+> $model -> group('字段名');
+>
+> $model -> CURD操作；
+
+### 连贯操作
+
+将所有的辅助方法写在一行的操作。类似于如下的形式：
+
+> $model -> where() -> limit() -> order() -> field() -> select();
+
+辅助方法的顺序么有要求，只要满足model()在最前面，CURD操作在最后即可。
+
+例如：
+
+```php
+// 组合操作
+public function test12(){
+    $model = M('Dept');
+    $model -> group('name');
+    $model -> field('name, count(*) as count');
+    $data = $model -> select();
+    dump($data);
+}
+
+// 连贯操作
+public function test13(){
+    $model = M('Dept');
+    $data = $model -> field('name, count(*) as count') -> group('name') -> select();
+    dump($data);
+}
+```
+
+查询结果如下：
+
+![连贯操作](ThinkPHP框架.assets/1555732482847.png)
+
+### 统计查询
+
+count()\max()\min()\avg()\sum()
+
+## 13 综合案例二
+
+### 显示后台主页
+
+修改模板文件的CSS、JS文件的路径需要全局过一遍，同时将CSS、JS文件放置在Application/Public/Admin/之下，修改CSS、JS文件路径的时候使用_\_PUBLIC__/Admin寻找到对应的文件。
+
+这次的样例中同一个页面有两个模板文件的出现，效果如下：
+
+![综合案例二](ThinkPHP框架.assets/1555940790667.png)
+
+在/Application/Admin/Controller/中创建IndexController.class.php文件。用于展示index.html和home.html
+
+```php
+<?php
+
+namespace Admin\Controller;
+
+use Think\Controller;
+
+class IndexController extends Controller{
+    // home 
+    public function home(){
+        $this -> display();
+    }
+
+    // index
+    public function index(){
+        $this -> display();
+    }
+}
+?>
+```
+
+此时使用全路径访问index发现显示正常，但是如果使用默认路径就会出现显示错误的情况。
+
+全路径：http://192.168.5.131/index.php/Admin/Index/index
+
+默认路径：http://192.168.5.131/index.php/Admin/
+
+为了消减这种情况，需要修改index.html中的iframe查找路径。可以使用U()方法添加路径。修改如下：
+
+![修改路径](ThinkPHP框架.assets/1555940945376.png)
+
+> 使用U()方法在html文件中的时候，需要使用{:U()}的格式。
+
+### 设置部门管理
+
+![部门管理](ThinkPHP框架.assets/1555983240485.png)
+
+修改index.html中的连接跳转路径，使用U()方法
+
+![修改路径](ThinkPHP框架.assets/1555985060141.png)
+
+将add.html模块放入到/Application/Admin/View/Dept/中，修改add.html代码，使用volist循环显示：
+
+![volist循环](ThinkPHP框架.assets/1555985341787.png)
+
+同时为了让确定和清空内容两个按钮在使用form表单的时候不清除样式，添加jQuery代码。
+
+![jQuery代码](ThinkPHP框架.assets/1555985426754.png)
+
+## 14 模型2
+
+### 数据对象的创建
+
+之前使用了一个_set方法，后面使用另外一个批量设置的create方法，这个方法的语法如下：
+
+> $model -> create()；一般是两个参数都不传入
+
+默认使用post中的数据。
+
+在/Application/Admin/Controller/DeptController.class.php添加Add方法，用于部门的添加。
+
+```php
+    public function Add(){
+        // 判断请求类型
+        if(IS_POST){
+            // 处理表单提交
+            // $post = I('post.');
+            // 写入数据 
+            $model = M('Dept');
+            // 创建数据对象
+            $data = $model -> create(); //不传递参数，则接收post数据
+            $result = $model -> add();
+            // 判断返回值
+            if($result){
+                $this -> success('success', U('showList'), 3);
+            }else{
+                $this -> error('failed');
+            }
+        }else{
+            // 查询出顶级部门
+            $model = M('Dept');
+            $data = $model -> where('pid = 0') -> select();
+            // 传输数据
+            $this -> assign('data', $data);
+            // 展示
+            $this -> display();
+        }
+    }
+```
+
+这里使用了创建数据对象的方法create()。有一个问题是就算没有添加任何的信息，点击添加部门中的确定按钮依然会写入数据，也就是没有进行验证操作。
+
+### 自动验证
+
+TP中有自动验证的方法，但是必须配数据对象使用。验证规则在父类模型中存在一个成员属性，叫做_validate，这个属性是保存验证规则的。由于不能在父类模型中直接更改属性，**所以可以把这个属性复制到子类（自定义模型）中去定义规则**。
+
+在/Application/Admin/Model/DeptModel.class.php中添加自动验证规则。验证规则的格式：
+
+```
+array(
+	array(验证字段1， 验证规则， 错误提示， [验证条件，附加规则，验证时间]),
+	...
+)
+```
+
+**必选参数：**
+
+**验证字段：表单中每一个表单项的name值；**
+
+**验证规则：就是针对验证字段的要求格式的限制，常见规则有****require 字段必须、email 邮箱、url URL地址、currency 货币、number 数字。**
+
+**错误提示：在验证不合理的时候给用户提示信息。**
+
+可选参数：
+
+验证条件：0表示字段存在就验证（默认），1表示必须验证，2表示字段不为空的时候验证。
+
+附加规则：结合验证规则，两者配合起来使用。具体支持的方法，可以参考手册“自动验证”。
+
+验证时间：1表示新增数据的时候验证，2表示编辑的时候验证，3表示全部情况下都验证（默认）。
+
+/Application/Admin/Model/DeptModel.class.php/：
+
+```php
+<?php
+namespace Admin\Model;
+
+use Think\Model;
+
+class DeptModel extends Model{
+    // 自动验证规则定义
+    protected $_validate = array(
+        // 针对部门名称的规则，必填，不能重复。
+        array('name', 'require', 'empty'),
+        array('name', '', 'having', 0, 'unique'),
+        // 排序字段验证规则，数字
+        array('sort', 'number', 'number'),
+    );
+}
+?>
+```
+
+**注意：因为规则是定义在自定义模型中，所以模型在实例化的时候必须需要实例化自定义模型**。也就是使用D()方法，而不是M()方法去实例化。
+
+改写/Application/Admin/Controller/DeptController.class.php/Add()
+
+注意下方的M()方法已经修改为D()方法。
+
+```php
+public function Add(){
+        // 判断请求类型
+        if(IS_POST){
+            // 写入数据 
+            $model = D('Dept');
+            // 创建数据对象
+            $data = $model -> create(); //不传递参数，则接收post数据
+            // 1判断验证结果
+            if(!$data){
+                // 提示用户验证失败
+                $this -> error($model -> getError());
+                exit;
+            }
+
+            $result = $model -> add();
+    }
+```
+
+### 字段映射
+
+这种方法是为了提高安全性。例如表单中的name的值和数据表中的字段名都是一样的，这样可以通过name的值猜测出数据表的名字和结构，所以使用一个随机的字符映射了真实的值，这样就安全性更高。
+
+> $_map = array();
+
+## 15 验证码类
+
+Verify.class.php就是TP中的验证码类，其中常见的方法：Check()\Entry()
+
+### 生成常规验证码
+
+```php
+    public function test14(){
+        // 配置
+        $cfg = array(
+                'fontSize' => 12,   // 验证码字体大小
+                'useCurve' => false,// 是否混淆曲线
+                'useNoise' => false,// 是否添加杂点
+                'length' => 4,      // 验证码位数
+                // 'fontttf' => '4.ttf',  // 验证码字体，不设置就随机
+        );
+        // 实例化验证码类
+        $verify = new \Think\Verify($cfg);
+        // 输出验证码
+        $verify -> entry();
+    }
+```
+
+## 16 综合案例三
+
+### 实现后台登陆功能
+
+在/Application/Admin/Controller/PublicController.class.php添加captcha()方法，用于输出验证码：
+
+```php
+    public function captcha(){
+        // 配置
+        $cfg = array(
+                'fontSize' => 12,   // 验证码字体大小
+                'useCurve' => false,// 是否混淆曲线
+                'useNoise' => false,// 是否添加杂点
+                'length' => 4,      // 验证码位数
+                'imageW' => 90,      
+                'imageH' => 38,      
+                // 'bg' => array(93, 202, 27),      
+                'fontttf' => '4.ttf',  // 验证码字体，不设置就随机
+        );
+        // 实例化验证码类
+        $verify = new \Think\Verify($cfg);
+        // 输出验证码
+        $verify -> entry();
+    }
+```
+
+在/Application/Admin/View/Public/login.html中输出验证码，同时给图片绑定点击事件，让其点击更新验证码。
+
+```html
+<p class="yzm ue-clear">
+    <label>验证码</label>
+    <input type="text" name="captcha" maxlength="4"/>
+    <cite><img style="margin-left: 3px;" src="__CONTROLLER__/captcha" onclick="this.src='__CONTROLLER__/captcha/t/' + Math.random()" /></cite>
+</p>
+```
+
+创建用户表：
+
+![用户表](ThinkPHP框架.assets/1556002254517.png)
+
+在/Application/Admin/Controller/PublicController.class.php中添加checkLogin()方法，用于验证用户的登录。
+
+```php
+//checkLogin
+public function checkLogin(){
+    // 获取数据
+    $post = I('post.');
+    // 验证验证码
+    $verify = new \Think\Verify();
+    // 验证
+    $result = $verify -> check($post['captcha']);
+    if($result){
+        // 验证码正确，处理用户名和密码
+        $model = M('User');
+        // 删除验证码信息
+        unset($post['captcha']);
+        // 查询
+        $data = $model -> where($post) -> find();
+        // 判断用户存在
+        if($data){
+            // 用户存在，将信息持久化保存在session中，跳转后台
+            session('id', $data['id']);
+            session('username', $data['username']);
+            session('role_id', $data['role_id']);
+            $this -> success('success', U('Index/index'), 2);
+        }else{
+            $this -> error('username or password error');
+        }
+    }else{
+        $this -> error('verify error');
+    }
+}
+```
+
+修改login.html中，对用户名处添加form标签，用于表单提交。添加name属性，修改登录的href标签，使用jQuery进行表单的提交。
+
+![修改login.html](ThinkPHP框架.assets/1556002518550.png)
+
+```js
+$(function(){
+    $('.btn').on('click', function(){
+        $('form').submit();
+    });
+});
+```
+
+完善细节，修改显示的用户名并且修改跳转地址。
+
+在PublicController.class.php中添加logout方法：
+
+```php
+public function logout(){
+    // 清空session
+    session(null);
+    // 跳转到登陆界面
+    $this -> success('logout success', U('login'), 2);
+}
+```
+
+修改/Application/Admin/View/Public/index.html中的退出跳转地址，发现跳转定义在/Application/Public/js/index.js中，所以修改跳转地址如下：
+
+![修改index.js](ThinkPHP框架.assets/1556003385294.png)
+
+> TP规定，不能在JS、CSS等非模板文件中使用任何模板引擎的东西。
+
+### 添加部门展示功能
+
+在DeptController.class.php中添加方法showList：
+
+```php
+public function showList(){
+    // 模板实例化
+    $model = M('Dept');
+    // 查询
+    $data = $model -> order('sort asc') -> select();
+    // 二次遍历查询顶级部门
+    foreach ($data as $key => $value){
+        if ($value['pid'] > 0){
+            // 查询pid对应的部门
+            $info = $model -> find($value['pid']);
+            // 只需要保存其中的name
+            $data[$key]['deptname'] = $info['name'];
+        }
+    }
+    // 传递模板
+    $this -> assign('data', $data);
+    // 显示模板
+    $this -> display();
+}
+```
+
+将showList.html放入/View/Dept/中，修改静态资源路径。修改为动态获取显示内容。
+
+```html
+<tbody>
+    <volist name='data' id='vol'>
+        <tr>
+            <td class="num">{$vol.id}</td>
+            <td class="name">{$vol.name}</td>
+            <td class="process">
+                <if condition='$vol.pid == 0'>顶级部门<else/>{$vol.deptname}</if>
+            </td>
+            <td class="node">{$vol.sort}</td>
+            <td class="time">{$vol.remark}</td>
+            <td class="operate"><a href="javascript:;">查看</a></td>
+        </tr>
+    </volist>
+</tbody>
+```
+
+### 完成部门编辑功能
+
+在DeptContorller.class.php中添加edit方法：
+
+```php
+    public function edit(){
+        // 保存数据
+        if(IS_POST){
+            // 处理post
+            $post = I('post.');
+            // 实例化
+            $model = M('Dept');
+            // 保存操作
+            $result = $model -> save($post);
+            if($result !== false){
+                // 成功
+                $this ->success('edit success', U('showList'), 3);
+            }else{
+                $this -> error('edit failed');
+            }
+        }else{
+            // 接收id
+            $id = I('get.id');
+            // 实例化模型
+            $model = M('Dept');
+            // 查询部门信息
+            $data = $model -> find($id);
+            // 查询全部部门信息，给下拉列表使用
+            $info = $model -> where("id != $id") -> select();
+            // 变量分配
+            $this -> assign('data', $data);
+            $this -> assign('info', $info);
+            // 展示
+            $this -> display();
+        }
+    }
+```
+
+处理表单页面：
+
+隐藏域：**因为系统限制不能执行批量修改，所以修改的时候必须指定主键，这也就是指定要求添加一个隐藏域，来传递id**
+
+![数据保存](ThinkPHP框架.assets/1556010483222.png)
+
+使用jQuery绑定点击事件
+
+```js
+$(function(){
+    $('.confirm').on('click', function(){
+        $('form').submit();
+    });
+
+    $('.clear').on('click', function(){
+        $('form')[0].reset();
+    });
+});
+```
+
+添加下拉菜单显示上级部门：
+
+```php
+	    	<label>上级部门：</label>
+	        <div class="select-wrap">
+	        	<select name="pid">
+	                <option value="0">顶级部门</option>
+                    <volist name='info' id='vol'>
+                    <option value="{$vol.id}" <if condition='$vol.id == $data.pid'>selected="selected"</if>>{$vol.name}</option>
+	            </select>
+	        </div>
+```
+
+### 添加部门删除功能
+
+
+
+
+
+
+
+
 
