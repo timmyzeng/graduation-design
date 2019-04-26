@@ -2072,11 +2072,271 @@ ue默认提交的字段值是editorValue，这个跟我们设定的content字段
 - form中的文件域必须要type="file"。
 - form必须使用method="post"的方式进行提交。
 
+为了更加符合MVC的设计规范，这里自定义一个模型，在这个模型中定义saveDate方法，用来实现将文件上传及数据的保存功能。
 
+路径：/Application/Admin/Model/DocModel.class.php
 
+```php
+<?php
 
+namespace Admin\Model;
 
+use Think\Model;
 
+class DocModel extends Model{
+    public function saveDate(){
 
+    }
+}
+?>
+```
 
+修改DocController.class.php中的add方法，让其使用saveDate方法进行文件上传及数据保存。注意add方法中的实例化模型必须使用D方法，因为是自定义的模型。
+
+![修改add方法](ThinkPHP框架.assets/1556295254655.png)
+
+编写saveDate方法。
+
+```php
+<?php
+
+namespace Admin\Model;
+
+use Think\Model;
+
+class DocModel extends Model{
+
+    public function saveDate($post, $file){
+        // 判断是否有文件需要处理
+        if(!$file['error']){
+            // 定义配置
+            $cfg = array(
+                'rootPath' => WORKING_PATH . UPLOAD_ROOT_PATH
+            );
+            // 处理上传
+            $upload = new \Think\Upload($cfg);
+            // 开始上传
+            $info = $upload -> uploadOne($file);
+            if($info){
+                // 根据数据库补全三个字段
+                $post['filepath'] = UPLOAD_ROOT_PATH . $info['savepath'] . $info['savename'];
+                $post['filename'] = $info['name'];
+                $post['hasfile'] = 1;
+            }
+        }
+        // 补全addtime
+        $post['addtime'] = time();
+        // 返回添加操作
+        return $this -> add($post);
+    }
+}
+?>
+```
+
+代码中的WORKING\_PATH以及UPLOAT\_ROOT_PATH的定义在入口文件index.php中：
+
+```php
+// 定义工作路径
+define('WORKING_PATH', __DIR__);
+
+// 定义上传路径
+define('UPLOAD_ROOT_PATH', '/Public/Uploads/');
+```
+
+同时在/Public/中创建目录Uploads/，并将两者的权限修改为0777。
+
+查看上传的返回值$info，可以看到如下九个字段。可以通过savename和savepath获得附件存储位置。通过name字段可以获得附件的原名。
+
+![上传成功](ThinkPHP框架.assets/1556294949797.png)
+
+数据库添加成功：
+
+![数据库结果](ThinkPHP框架.assets/1556295426243.png)
+
+### 添加附件下载功能
+
+修改showList.html展示文件名，同时在附件后面添加一个下载按钮实现下载功能，如果有附件就显示下载按钮，没有就不显示。
+
+```html
+<td class="file">
+    {$vol.filename}
+    <if condition="$vol.hasfile == 1">
+        [<a href='__CONTROLLER__/download/id/{$vol.id}'>download</a>]
+    </if>
+</td>
+```
+
+在DocController.class.php中添加download方法：
+
+```php
+    public function download(){
+        // 获取到id
+        $id = I('get.id');
+        // 查找数据
+        $data = M('Doc') -> find($id);
+        // 文件路径
+        $file = WORKING_PATH . $data['filepath'];
+        // 输出文件
+        header("Content-type: application/octet-stream");
+        header('Content-Disposition: attachment; filename="'. basename($file) .'"');
+        header("Content-Length: ". filesize($file));
+        // 输出缓冲区
+        readfile($file);
+    }
+```
+
+效果如下：
+
+![下载效果图](ThinkPHP框架.assets/1556296424861.png)
+
+### 使用layer查看公文内容
+
+下载layer，同时将layer放入到/Public/plugin/中。
+
+在/View/Doc/showList.html中添加script语句：
+
+```js
+<script type="text/javascript" src="__ADMIN__/js/jquery.js"></script>
+<script type="text/javascript" src="__ADMIN__/plugin/layer/layer.js"></script>
+```
+
+给查看添加绑定点击事件：
+
+```html
+<td class="operate">
+    <a href ='javascript:;' class='show' data='{$vol.id}' data-title='{$vol.title}'>查看</a> 
+</td>
+```
+
+写入jQuery点击事件：
+
+```js
+$('.show').on('click', function(){
+    var id = $(this).attr('data');
+    var title = $(this).attr('data-title');
+    layer.open({
+               type: 2,
+               title: title,
+               shadeClose: true,
+               shade: 0,
+               area: ['560px', '90%'],
+               content: '__CONTROLLER__/showContent/id/' + id
+    });
+});
+```
+
+在这里调用了DocController.class.php中的showContent方法，传入id键值对。定义showContent方法：
+
+```php
+    public function showContent(){
+        $id = I('get.id');
+        $data = M('Doc') -> find($id);
+        echo htmlspecialchars_decode($data['content']);
+    }
+```
+
+这里注意使用函数进行转码，这样就可以通过点击查看按钮显示content中的内容。
+
+### 实现公文的编辑
+
+修改showList.html，添加一个编辑。
+
+```html
+<td class="operate">
+    <a href ='javascript:;' class='show' data='{$v    ol.id}' data-title='{$vol.title}'>查看</a> | <a href = '__CONTROLLER__/edit/id/{$vol.id}'>编辑</a>
+</td>
+```
+
+拷贝add.html为edit.html，修改其中的字段如下：
+
+![edit.html](ThinkPHP框架.assets/1556300532556.png)
+
+这里有两个点，一个是使用了input的隐藏属性传递了id，另一个是使用htmlspecialchars_decode函数对content中的数据进行了解码。
+
+在DocController.class.php中添加edit方法：
+
+```php
+    public function edit(){
+        // 处理更新流程
+        if(IS_POST){
+            $post = I('post.');
+            $model = D('Doc');
+            $result = $model -> updateData($post, $_FILES['file']);
+            if($result){
+                $this -> success('update success', U('showList'), 3);
+            }else{
+                $this -> error('update failed');
+            }
+        // 处理点击编辑按钮的流程
+        }else{
+            $id = I('get.id');
+            $data = M('Doc') -> find($id);
+            $this -> assign('data', $data);
+            $this -> display();
+        }
+    }
+```
+
+在DocModel.class.php中添加updateDate方法：
+
+```php
+    public function updateData($post, $file){
+        if($file['error'] == '0'){
+            $cfg = array(
+                'rootPath' => WORKING_PATH . UPLOAD_ROOT_PATH
+            );
+            $upload = new \Think\Upload($cfg);
+            $info = $upload -> uploadOne($file);
+
+            if($info){
+                // 根据数据库补全三个字段
+                $post['filepath'] = UPLOAD_ROOT_PATH . $info['savepath'] . $info['savename'];
+                $post['filename'] = $info['name'];
+                $post['hasfile'] = 1;
+            }
+        }
+        return $this -> save($post);
+    }
+```
+
+### 完善登录功能，防止直接使用url进入后台。
+
+创建中间控制器，CommonController.class.php：
+
+```php
+<?php
+namespace Admin\Controller;
+
+use Think\Controller;
+
+class CommonController extends Controller{
+
+}
+?>
+```
+
+让需要验证的控制器都继承中间控制器，除了登录控制器和错误界面控制器都需要继承。继承样例如下：
+
+![继承中间控制器](ThinkPHP框架.assets/1556301827195.png)
+
+在CommonController中添加构造方法，同时进行身份验证：
+
+```php
+<?php
+namespace Admin\Controller;
+
+use Think\Controller;
+
+class CommonController extends Controller{
+    public function _initialize(){
+        $id = session('id');
+        if(empty($id)){
+            $url = U('Public/login');
+            echo "<script>top.location.href='$url'</script>";
+            exit;
+        }
+    }
+}
+?>
+```
 
