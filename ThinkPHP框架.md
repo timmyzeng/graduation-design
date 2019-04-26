@@ -410,6 +410,14 @@ TP变量的默认分隔符是{}，但是可以通过配置文件进行修改，/
 
 重点是字符串的替换。
 
+目前的项目是在Admin下面，为了在该项目中引入/Public/Admin/中的样式文件更为简单，所以在项目中自定义一个_\_ADMIN__。路径如下：/Appliaction/Common/Conf/config.php:
+
+```php
+'TMPL_PARSE_STRING' => array(
+    '__ADMIN__' => __ROOT__.'/Public/Admin'   // 站点公共模块下的Admin项目
+), 
+```
+
 ### 综合案例一
 
 使用TP显示如下页面：
@@ -1663,6 +1671,406 @@ $(function(){
 ```
 
 ### 添加部门删除功能
+
+showList.html中给列表的每一行添加一个复选框，用于选择删除：
+
+```html
+<td class="operate">
+    <input type="checkbox" class="deptid" value="{$vol.id}" />
+    ...
+</td>
+```
+
+实现点击删除按钮就可以删除的功能。这里需要使用到jQuery，获取del的点击事件进行处理
+
+```js
+// jQuery
+$(function(){
+    // 给删除按钮绑定点击事件
+    $('.del').on('click', function(){
+        // 事件处理程序
+        var idObj = $(':checkbox:checked'); // 获取全部已经被选择的checkbox
+        var id = '';    // 接收处理后的部门id值，组成id1, di2...
+        // 循环遍历idObj对象，获取其中的每一个值
+        for (var i = 0; i < idObj.length; i++) {
+            id += idObj[i].value + ',';
+        }
+        // 去掉最后的逗号
+        id = id.substring(0, id.length - 1);
+        // 带着参数跳转到del方法中
+        window.location.href = '__CONTROLLER__/del/id/' + id;
+    });
+});
+```
+
+在DeptController.class.php中添加del方法进行删除。
+
+```php
+    public function del(){
+        $id = I('get.id');
+
+        $model = M('Dept');
+
+        $result = $model -> delete($id);
+
+        if ($result){
+            $this -> success('delete success');
+        }else{
+            $this -> error('delete failed');
+        }
+    }
+```
+
+### 添加职员管理
+
+修改index.html中的左侧菜单栏。
+
+```html
+<li class="nav-info">
+    <div class="nav-header"><a href="javascript:;" class="ue-clear"><span>职员管理</span><i class="icon"></i></a></div>
+    <ul class="subnav">
+        <li><a href="javascript:;" date-src="{:U('User/showList')}">职员列表</a></li>
+        <li><a href="javascript:;" date-src="{:U('User/add')}">添加职员</a></li>
+    </ul>
+</li>
+```
+
+重新导入db_oa中的数据：
+
+![sp_dept](ThinkPHP框架.assets/1556031173665.png)
+
+![sp_user](ThinkPHP框架.assets/1556031202217.png)
+
+创建UserController.class.php添加add方法，同时增加add.html模板。
+
+add.html中添加选项：
+
+```html
+<select name="dept_id">
+    <option value="-1">请选择</option>
+    <foreach name='data' item='fo'>
+        <option value="{$fo.id}">{$fo.name}</option>
+    </foreach>
+</select>
+```
+
+add()方法：
+
+```php
+public function add(){
+    if(IS_POST){
+        $model = M('User');
+        $data = $model -> create();
+        $data['addtime'] = time();
+        $result = $model -> add($data);
+        if($result){
+            $this -> success('add success', U('showList'), 3);
+        }else{
+            $this -> error('add failed');
+        }
+    }else{
+        $data = M('Dept') -> field('id, name') -> select();
+        $this -> assign('data', $data);
+        $this -> display();
+    }
+}
+```
+
+在UserController.class.php中添加showList()方法，将showList.html放入到模板中。
+
+showList()方法：
+
+```php
+public function showList(){
+    $data = M('User') -> select();
+
+    $this -> assign('data', $data);
+
+    $this ->display();
+}
+```
+
+修改showList.html进行循环显示：
+
+```html
+<volist name='data' id='vol'>
+    <tr>
+        <td class="id">{$vol.id}</td>
+        <td class="name">{$vol.username}</td>
+        <td class="nickname">{$vol.nickname}</td>
+        <td class="dept_id">{$vol.dept_id}</td>
+        <td class="sex">{$vol.sex}</td>
+        <td class="birthday">{$vol.birthday}</td>
+        <td class="tel">{$vol.tel}</td>
+        <td class="email">{$vol.email}</td>
+        <td class="addtime">{$vol.addtime|date='Y-m-d H:i:s', ###}</td>
+        <td class="operate"><a href="javascript:;">查看</a></td>
+    </tr>
+</volist>
+```
+
+## 17 分页功能
+
+TP中封装了一个分页类：Page.class.php
+
+分页类中包含了如下属性：
+
+![分页类属性](ThinkPHP框架.assets/1556034742050.png)
+
+包含如下方法：构造方法；SetConfig()方法；Show()方法；
+
+### 分页的方法
+
+![方法一](ThinkPHP框架.assets/1556034835764.png)
+
+**第一步：查询出总的记录数；**
+
+**第二步：实例化分页类，由于底层实现要求实例化的时候至少需要传递总数，所以需要在实例化的时候传递参数；**
+
+**第三步：（可选步骤）定制显示分页提示的文字；**
+
+**第四步：通过show方法输出分页页码的连接；**
+
+**第五步：使用limit方法进行分页查询，注意其参数是page类的属性；**
+
+**第六步：使用assign将查询的数据和分页连接数据传递给模版；**
+
+**第七步：输出模版；**
+
+### 综合案例四
+
+在UserController.class.php中定义方法showList()，其中定义了分页的方法。
+
+```php
+public function showList(){
+    // 模型实力化
+    $model = M('User');
+    // 分页第一步：查询总的记录数
+    $count = $model -> count();
+    // 分页第二步：实例化分页类，传递参数
+    $page = new \Think\Page($count, 1); // 每页显示1个
+    // 分页第三步：可选步骤，定义提示文字
+    $page -> rollPage = 5;
+    $page -> lastSuffix = false;
+    $page -> setConfig('prev', '上一页');
+    $page -> setConfig('next', '下一页');
+    $page -> setConfig('last', '末页');
+    $page -> setConfig('first', '首页');
+    // 分页第四步：show方法生成url
+    $show = $page -> show();
+    // 分页第五步：展示数据
+    $data = $model -> limit($page->firstRow, $page->listRows) -> select();
+    // 分页第六步：传递给模板
+    $this -> assign('data', $data);
+    $this -> assign('show', $show);
+    // 分页第七步：展示模板
+    $this -> display();
+}
+```
+
+Show方法返回值类似于下面的这种形式：
+
+![Show方法的返回](ThinkPHP框架.assets/1556036103232.png)
+
+设置首页和末页的时候需要注意，如果总的页码数小于分页类中rollPage属性，则不会显示首页和末页的按钮，这个时候需要修改rollPage的值；由于分页类中lastSuffix属性，定义最后一页显示总页数，所以将其改为false
+
+修改showList.html文件，让其显示show变量。
+
+![show变量显示](ThinkPHP框架.assets/1556036326516.png)
+
+效果如下：
+
+![分页结果展示](ThinkPHP框架.assets/1556036474291.png)
+
+## 18 连表查询
+
+### table方法
+
+原生的sql语句查询
+
+```php
+public function test15(){
+    $model = M();
+    $sql = "select t1.*, t2.name as deptname from sp_user as t1, sp_dept as t2 where t1.dept_id = t2.id;";
+    $result = $model -> query($sql);
+}
+```
+
+table的语法：
+
+> $model -> table(‘表名1 [as 别名1],表名2 [as 别名2]…’);	//table方法也是连贯操作中的一个辅助方法。在使用table方法之后模型会自动关联上table方法中指定的数据表。
+
+使用table进行查询：
+
+```php
+public function test16(){
+    $model = M();
+    $result = $model -> field('t1.*, t2.name as deptname') -> table('sp_user as t1, sp_dept as t2') -> where('t1.dept_id = t2.id') -> select();
+}
+```
+
+### join方法
+
+![join方法](ThinkPHP框架.assets/1556037099701.png)
+
+原生的sql：**select t1.\*,t2.name as deptname from sp_dept as t1 left join sp_dept as t2 on t1.pid = t2.id;**
+
+Join的语法：
+
+> $model -> join(‘联表方式 join 表名 [as 别名] on 表1.字段 = 表2.字段’);	//join方法也是连贯操作的辅助方法之一，只有一个参数。
+
+```php
+public function test17(){
+    $model = M();
+    $result = $model -> field('t1.*, t2.name as deptname') -> alias('t1') -> join('left join sp_dept as t2 on t1.pid = t2.id') -> select();
+}
+```
+
+## 19 综合案例五
+
+### 实现文案添加和展示
+
+创建数据表sp_doc：
+
+![sp_doc](ThinkPHP框架.assets/1556038400098.png)
+
+修改Index/index.html中的公文管理导航菜单栏：
+
+```html
+<li class="gongwen">
+    <div class="nav-header"><a href="javascript:;" class="ue-clear"><span>公文管理</span><i class="icon"></i></a></div>
+    <ul class="subnav">
+        <li><a href="javascript:;" date-src="{:U('Doc/showList')}">公文列表</a></li>
+        <li><a href="javascript:;" date-src="{:U('Doc/add')}">添加公文</a></li>
+    </ul>
+</li>
+```
+
+创建控制器DocController.class.php，添加add方法，将add.html移动到View/Doc/中：
+
+```php
+<?php
+
+namespace Admin\Controller;
+
+use Think\Controller;
+
+public function add(){
+    if(IS_POST){
+        // 处理提交
+        $post = I('post.');
+        // 补全字段addtime
+        $post['addtime'] = time();
+        // 实例化模型
+        $model = M('Doc');
+        $result = $model -> add($post);
+        if($result){
+            // 成功并实现跳转
+            $this -> success('add success', U('showList'), 3);
+        }else{
+            $this -> error('add failed');
+        }
+    }
+    else{
+        $this -> display();
+    }
+}
+?>
+```
+
+将showList.html文件移动到View/Doc中，同时在DocController.class.php中添加showList()方法。
+
+```php
+public function showList(){
+    $model = M('Doc');
+    $data = $model -> select();
+    $this -> assign('data', $data);
+    $this -> display();
+}
+```
+
+修改showList.html显示内容：
+
+```html
+<tbody>
+    <volist name='data' id='vol'>
+        <tr>
+            <td class="id">{$vol.id}</td>
+            <td class="name">{$vol.title}</td>
+            <td class="file"></td>
+            <td class="content">{$vol.author}</td>
+            <td class="addtime">{$vol.addtime|date='Y-m-d H:i:s', ###}</td>
+            <td class="operate">
+                <a href ='javascript:;'>查看</a> 
+            </td>
+        </tr>
+    </volist>
+</tbody>
+```
+
+查看内容的时候发现：
+
+![查看展示](ThinkPHP框架.assets/1556284789143.png)
+
+较长的标题出现了换行的现象，为了美观。自定义了一个函数文件，其中已经封装好了一个msubstr的函数，该函数可以进行中文截取：将function.php放到指定的位置（放到应用级别的目录中/Application/Common/common）这样就可以在项目中直接使用该函数。
+
+修改showList.html中title的显示：
+
+![msubstr](ThinkPHP框架.assets/1556285619441.png)
+
+### ueditor富文本编辑器
+
+官网下载php的utf-8版本，然后放到Public/Admin/Plugin/ue中
+
+![ueditor](ThinkPHP框架.assets/1556286517534.png)
+
+其中的index.html是一个完整的demo，可以通过他知道如何在php中使用ueditor。
+
+目前打算使用ue代替add.html中的文本框。
+
+首先在add.html中引入三个在ue中需要的js文件：
+
+![引入ue的js文件](ThinkPHP框架.assets/1556287277858.png)
+
+然后在内容位置替换ue的位置代码。
+
+![替换ed](ThinkPHP框架.assets/1556286943863.png)
+
+最后实例化ue。
+
+![实例化ue](ThinkPHP框架.assets/1556287118356.png)
+
+输出结果如下：
+
+![ue输出结果](ThinkPHP框架.assets/1556287618975.png)
+
+最后进行微调：
+
+通过dump查看了提交的内容发现：
+
+![提交的内容](ThinkPHP框架.assets/1556287926835.png)
+
+ue默认提交的字段值是editorValue，这个跟我们设定的content字段不一样，所以需要在script中添加字段name='content'，这样保证跟数据库的表字段一样。
+
+如果上传了图片，会在ue/php/config.json中指定的路径中进行保存图片。
+
+![ue图片配置](ThinkPHP框架.assets/1556288623431.png)
+
+![上传图片样例](ThinkPHP框架.assets/1556288548891.png)
+
+因为保存到数据库中的内容是转码之后的格式，此处的转码，是由ThinkPHP的I方法进行转化的，使用的是htmlspecialchars。在读取的时候需要将数据表中实体字符进行还原，可以使用函数**htmlspecialchars_decode**。
+
+![数据库中的样式](ThinkPHP框架.assets/1556288710633.png)
+
+### 添加上传文件功能
+
+在TP中有一个上传类：Upload.class.php，在上传文件的时候有一个核心的操作就是移动临时文件（move_upload_file）。上传类中有几个函数：getError方法；uploadOne方法；upload方法
+
+在进行文件上传的表单中需要注意如下几个点：
+
+- form中必须有enctype="multipart/form-data"属性，该属性表示不会进行任何编码。
+- form中的文件域必须要type="file"。
+- form必须使用method="post"的方式进行提交。
 
 
 
