@@ -2,7 +2,7 @@
 
 > zzc
 >
-> 参考地址：[php中文网-PHP语法基础与数据库详解教程](http://www.php.cn/code/29825.html)
+> 参考地址：[PHP中文网-PHP语法基础与数据库详解教程](http://www.php.cn/code/29825.html)
 
 ## 3.21 基础知识
 
