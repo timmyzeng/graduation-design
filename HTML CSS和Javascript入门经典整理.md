@@ -70,4 +70,3 @@ CSS：定义样式结构语言，包括字体、颜色和定位，描述了Web�
   - border：边框的各条边
   - color：文字颜色
   - background-color：背景颜色
-- 
