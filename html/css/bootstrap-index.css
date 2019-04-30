@@ -1,0 +1,169 @@
+/*样式的调整可以通过F12进行样式选择，然后找到对应的选择器或者标签进行实时修改。*/
+body{
+  font-family: 'Microsoft YaHei', sans-serif;
+}
+
+article{
+  background-color: #f3f3f3;
+}
+/*导航栏*/
+/*导航栏显示样式*/
+nav.navbar.navbar-default {
+  background-color: #226EB1;
+  border: none;
+  margin-bottom: 0;
+}
+.navbar-collapse.collapse {
+  padding: 0;
+}
+.navbar-default .navbar-nav>li>a {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  /*height: 70px;*/
+  line-height: 35px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+/*导航栏鼠标覆盖样式变化*/
+.navbar-default .navbar-nav>li>a:hover {
+  background-color: #ffffff;
+  color: #226EB1;
+}
+/*小屏按钮样式*/
+.navbar-default .navbar-toggle {
+  border-color: #ffffff;
+  background-color: #ffffff;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #226eb1;
+}
+.navbar-default .navbar-toggle:hover {
+  border: none;
+  background-color: #9de5ff;
+}
+/*当前被选中的样式*/
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+  color: #226eb1;
+  background-color: #ffffff;
+  border: none;
+}
+/*导航栏二级菜单*/
+ul.dropdown-menu {
+  min-width: 100%;
+  border: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-top: 1px solid #226eb1;
+}
+.dropdown-menu>li>a {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #226eb1;
+}
+li.dropdown>a:hover{
+  color: #226eb1;
+  background-color: #ffffff;
+}
+/*导航栏*/
+
+/*首页图片轮播*/
+a.left.carousel-control, a.right.carousel-control{
+  background-image: none;
+}
+a.left.carousel-control:hover, a.right.carousel-control:hover{
+  color: #226eb1;
+}
+.carousel-caption {
+  display: block;
+  width: 360px;
+  height: 80px;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding-top: 30px;
+  background: rgba(3,39,115,.85);
+  color: #fff;
+  box-shadow: 0 0 4px rgba(0,0,0,.15);
+  font-size: 12pt;
+}
+
+/*快捷入口*/
+#quick_entry{
+  text-align: center;
+}
+#quick_entry div.quick_entry_pic{
+  display: block;
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+  padding-top: 10px;
+}
+#quick_entry div.col-md-4{
+  padding-bottom: 20px;
+}
+#quick_entry span{
+  font-size: 25px;
+}
+#quick_entry a:hover, #quick_entry div.quick_entry_pic:hover{
+  color: #ffffff;
+  background-color: #226eb1;
+}
+
+/*最新资讯 学校链接 留言板*/
+#latest_news{
+  margin-bottom: 15px;
+}
+#latest_news a, #school_link a, #message a{
+  text-decoration: none;
+}
+#latest_news div.panel-heading, #school_link div.panel-heading, #message div.panel-heading{
+  font-size: 13pt;
+  font-weight: bold;
+  color: #226EB1;
+  background-color: #ffffff;
+  padding-bottom: 0;
+  /*border-bottom: 1px solid #dddddd;*/
+}
+#latest_news div.panel, #school_link div.panel, #message div.panel{
+  margin-bottom: 20px;
+  background-color: #fff;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+  box-shadow: 0 1px 1px rgba(0,0,0,.05);
+  border: none;
+}
+#latest_news li.list-group-item, #school_link li.list-group-item{
+  border: 1px dashed #ddd;
+  padding: 10px 15px 0 15px;
+}
+#latest_news li.list-group-item>a, #school_link li.list-group-item>a{
+  color: #000000;
+}
+#latest_news li.list-group-item>a:hover, #school_link li.list-group-item>a:hover{
+  color: #226eb1;
+}
+#latest_news small, #message small{
+  font-size: 70%;
+  padding-top: 12px;
+}
+/*留言板表情*/
+.wh64{
+  width: 64px;
+  height: 64px;
+  border-radius:50% ;
+}
+
+/* footer*/
+footer{
+  display: block;
+  /*color: #fff;*/
+  color: rgba(255, 255, 255, 0.5);
+  background-color: #0D2842;
+  font-weight: normal;
+  text-align: left;
+  margin: 0 auto;
+  padding: 30px 8px 15px 8px;
+}
