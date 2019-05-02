@@ -54,7 +54,7 @@ header('Content-Type:text/html;charset="utf-8"');
 >
 > 修改并添加：
 
-```
+```nginx
     server {
         listen       80;
         server_name  localhost;

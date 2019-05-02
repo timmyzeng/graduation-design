@@ -7,9 +7,8 @@
   <title>计算机专业招生宣传网</title>
   <link rel="stylesheet" href="css/bootstrap.min.css"/>
   <!--自定义了一个css文件，用于覆盖Bootstrap中的样式-->
-  <link rel="stylesheet" href="css/bootstrap-index.css"/>
-  <!--右侧悬浮栏-->
-  <link rel="stylesheet" type="text/css" href="css/sidebar.css" />
+  <link rel="stylesheet" href="css/index.css"/>
+
 </head>
 
 <body>
@@ -49,11 +48,28 @@
         <ul class="nav navbar-nav">
           <!--active当前活动的标签-->
           <li><a href="index.html">招生首页</a></li>
-          <li><a href="school_profile.html">学校简介</a></li>
-          <li><a href="professional.html">专业介绍</a></li>
-          <li><a href="information.html">信息查询</a></li>
-          <li class="active"><a href="message_board.html">QA留言板</a></li>
-          <li><a href="contact.html">联系我们</a></li>
+          <li><a href="#">学校简介</a></li>
+          <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+              专业简介<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="#">专业介绍</a></li>
+              <li><a href="#">课程介绍</a></li>
+              <li><a href="#">师资力量</a></li>
+            </ul>
+          </li>
+          <li role="presentation" class="dropdown active">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+              信息查询<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="inquiry_admission.html">录取查询</a></li>
+              <li><a href="inquiry_enrollment_plan.html">招生计划及录取情况</a></li>
+            </ul>
+          </li>
+          <li><a href="#">QA留言板</a></li>
+          <li><a href="#">联系我们</a></li>
         </ul>
       </div>
       <!--logo下方导航-->
@@ -61,6 +77,37 @@
   </nav>
   <!--导航-->
 
+  <!--快捷入口-->
+  <section id="quick_entry">
+    <div class="container">
+      <div class="row">
+        <a href="index.html">
+          <div class="col-md-4">
+            <div class="quick_entry_pic">
+              <span class="glyphicon glyphicon-user"></span>
+              <p><strong>录取查询</strong></p>
+            </div>
+          </div>
+        </a>
+        <a href="index.html">
+          <div class="col-md-4">
+            <div class="quick_entry_pic">
+              <span class="glyphicon glyphicon-list-alt"></span>
+              <p><strong>专业介绍</strong></p>
+            </div>
+          </div>
+        </a>
+        <a href="index.html">
+          <div class="col-md-4">
+            <div class="quick_entry_pic">
+              <span class="glyphicon glyphicon-tasks"></span>
+              <p><strong>招生计划</strong></p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
 
 </article>
 
@@ -118,6 +165,14 @@
 <!--注意，jQuery一定要在Bootstrap之前，这是因为Bootstrap使用了jQuery-->
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<!--设置图片轮播时间为3000ms-->
+<script>
+  $(function(){
+    $('#myCarousel').carousel({
+      interval: 3000
+    });
+  });
+</script>
 
 </body>
 </html>

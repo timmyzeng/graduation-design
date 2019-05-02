@@ -1,0 +1,53 @@
+/* Custom Styles */
+#school_profile ul.nav-tabs{
+  width: 240px;
+  margin-top: 20px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  border-top: 3px solid #226eb1;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+  background: #fff;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+#school_profile ul.nav-tabs li{
+  margin: 0;
+  border-top: 1px solid #ddd;
+}
+#school_profile ul.nav-tabs li:first-child{
+  border-top: none;
+}
+#school_profile ul.nav-tabs li a{
+  margin: 0;
+  padding: 8px 16px;
+  border-radius: 0;
+}
+#school_profile ul.nav-tabs li.active a, #school_profile ul.nav-tabs li.active a:hover{
+  color: #fff;
+  background: #226eb1;
+  border: 1px solid #226eb1;
+}
+#school_profile ul.nav-tabs li:first-child a{
+  border-radius: 4px 4px 0 0;
+}
+#school_profile ul.nav-tabs li:last-child a{
+  border-radius: 0 0 4px 4px;
+}
+#school_profile ul.nav-tabs.affix{
+  top: 30px; /* Set the top position of pinned element */
+}
+#school_profile div.jumbotron{
+  padding: 0;
+  margin: 0;
+  background: none;
+}
+#school_profile div.school_profile_container{
+  margin-top: 20px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  border-top: 3px solid #226eb1;
+  background: #fff;
+  padding: 10px;
+}
+

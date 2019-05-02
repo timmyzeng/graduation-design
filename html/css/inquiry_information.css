@@ -1,0 +1,34 @@
+#inquiry_admission div.panel.panel-primary, #inquiry_admission_result div.panel.panel-primary{
+  height: 400px;
+  text-align: center;
+  margin-bottom: 50px;
+  margin-top: 25px;
+}
+#inquiry_admission ol.breadcrumb{
+  text-align: left;
+}
+#inquiry_admission div.col-md-6{
+  margin-top: 85px;
+}
+#inquiry_admission div.input-group {
+  width: 100%;
+}
+#inquiry_admission input.form-control {
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+#inquiry_admission div.panel-heading>p, #inquiry_admission_result div.panel-heading>p, #inquiry_enrollment_plan div.panel-heading>p{
+  text-align: left;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+#inquiry_enrollment_plan div.panel-primary{
+  margin-top: 25px;
+}
+
+#inquiry_enrollment_plan th{
+  width: 35%;
+}

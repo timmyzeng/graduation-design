@@ -52,8 +52,6 @@ nav.navbar.navbar-default {
 ul.dropdown-menu {
   min-width: 100%;
   border: none;
-  padding-top: 10px;
-  padding-bottom: 10px;
   border-top: 1px solid #226eb1;
 }
 .dropdown-menu>li>a {
@@ -95,16 +93,17 @@ a.left.carousel-control:hover, a.right.carousel-control:hover{
 /*快捷入口*/
 #quick_entry{
   text-align: center;
+  margin-top: 25px;
 }
 #quick_entry div.quick_entry_pic{
   display: block;
   background-color: #ffffff;
   border: 1px solid #ffffff;
   padding-top: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
-#quick_entry div.col-md-4{
-  padding-bottom: 20px;
-}
+
 #quick_entry span{
   font-size: 25px;
 }
@@ -114,8 +113,9 @@ a.left.carousel-control:hover, a.right.carousel-control:hover{
 }
 
 /*最新资讯 学校链接 留言板*/
-#latest_news{
+#latest_news, #school_link{
   margin-bottom: 15px;
+  margin-top: 25px;
 }
 #latest_news a, #school_link a, #message a{
   text-decoration: none;
@@ -154,6 +154,65 @@ a.left.carousel-control:hover, a.right.carousel-control:hover{
   width: 64px;
   height: 64px;
   border-radius:50% ;
+}
+
+/*sidebar*/
+.side-bar a,.chat-tips i {
+  background-image: url(../images/sidebar.png);
+  background-repeat: no-repeat;
+  background-size: 150px;
+}
+/*右侧悬浮icon*/
+.side-bar {
+  width: 66px;
+  position: fixed;
+  bottom: 300px;
+  right: 6px;
+  font-size: 0;
+  line-height: 0;
+  z-index: 100;
+}
+.side-bar a {
+  width: 55px;
+  height: 55px;
+  display: inline-block;
+  background-color: #dddddd;
+  margin-bottom: 2px;
+}
+.side-bar a:hover {
+  background-color: #669fdd;
+}
+.side-bar .icon-chat {
+  background-position: -48px -115px;
+  position: relative;
+}
+.side-bar .icon-chat:hover .chat-tips {
+  display: block;
+}
+.side-bar .icon-top {
+  background-position: -48px -359px;
+}
+.chat-tips {
+  padding: 20px;
+  border: 1px solid #d1d2d6;
+  position: absolute;
+  right: 78px;
+  top: -55px;
+  background-color: #ffffff;
+  display: none;
+}
+.chat-tips i {
+  width: 9px;
+  height: 16px;
+  display: inline-block;
+  position: absolute;
+  right: -9px;
+  top: 80px;
+  background-position:-88px -350px;
+}
+.chat-tips img {
+  width: 138px;
+  height: 138px;
 }
 
 /* footer*/
