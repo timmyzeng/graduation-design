@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-CH">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <title>计算机专业招生宣传网</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css"/>
+  <!--自定义css文件-->
+  <link rel="stylesheet" href="css/index.css"/>
+  <link rel="stylesheet" href="css/profile.css"/>
+
+</head>
+
+<body>
+<!--logo-->
+<!--#logo 会寻找到当前页面下id="home"的位置，点击之后自动滚动到该位置-->
+<div class="container" id="logo">
+  <div class="row">
+    <div class="col-md-12">
+      <!--logo的设置-->
+      <img src="images/sust-logo-top.png" alt="sust-logo-top" href="index.html" class="img-responsive">
+      <!--<a href="index.html" class="navbar-brand">计算机专业</a>-->
+    </div>
+  </div>
+</div>
+
+<article>
+  <!--导航-->
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <!--小屏幕导航按钮和logo-->
+      <!--这个div必须要添加，用于下文的导航进行分割-->
+      <div class="navbar-header">
+        <!--只有navbar-toggle样式的button是不能点击-->
+        <!--需要添加样式的绑定data-target，绑定的样式是下面的class-->
+        <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <!--incon-bar有几个就会有个按钮线-->
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <!--小屏幕导航按钮和logo-->
+
+      <!--logo下方导航-->
+      <div class="navbar-collapse collapse">
+        <!--添加了nav之后，li的样式被取消了-->
+        <ul class="nav navbar-nav">
+          <!--active当前活动的标签-->
+          <li><a href="index.html">招生首页</a></li>
+          <li><a href="school_profile.html">学校简介</a></li>
+          <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+              专业简介<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="profile_professional.html">专业介绍</a></li>
+              <li><a href="#">课程介绍</a></li>
+              <li><a href="#">师资力量</a></li>
+            </ul>
+          </li>
+          <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+              信息查询<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="inquiry_admission.html">录取查询</a></li>
+              <li><a href="inquiry_enrollment_plan.html">招生计划及录取情况</a></li>
+            </ul>
+          </li>
+          <li><a href="#">QA留言板</a></li>
+          <li><a href="#">联系我们</a></li>
+        </ul>
+      </div>
+      <!--logo下方导航-->
+    </div>
+  </nav>
+  <!--导航-->
+
+  <!--快捷入口-->
+  <section id="quick_entry">
+    <div class="container">
+      <div class="row">
+        <a href="index.html">
+          <div class="col-md-4">
+            <div class="quick_entry_pic">
+              <span class="glyphicon glyphicon-user"></span>
+              <p><strong>录取查询</strong></p>
+            </div>
+          </div>
+        </a>
+        <a href="index.html">
+          <div class="col-md-4">
+            <div class="quick_entry_pic">
+              <span class="glyphicon glyphicon-list-alt"></span>
+              <p><strong>专业介绍</strong></p>
+            </div>
+          </div>
+        </a>
+        <a href="index.html">
+          <div class="col-md-4">
+            <div class="quick_entry_pic">
+              <span class="glyphicon glyphicon-tasks"></span>
+              <p><strong>招生计划</strong></p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="profile_teacher">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="thumbnail">
+            <img src="images/teacher1.jpg" alt="白细胞">
+            <div class="caption">
+              <h3>白细胞</h3>
+              <p>跑男男主角吧</p>
+              <!--Bootstrap模态框-->
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                详细
+              </button>
+              <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-body">
+                      相貌衣着
+                      相貌
+                      白色短发，前额留较长的右偏三七分刘海儿，遮住右眼，只露出左眼，眼睛为纯黑色。
+                      漫画中皮肤略有血色，动画中皮肤与发色一样为白色。面部皮肤以双耳上缘-颧骨最高处-鼻梁中央划一条线，上部分颜色较深。
+                      衣着
+                      身上的全部衣着及装备均为白色，头戴写有“白细胞”的运动帽，帽檐上方左侧标记有“1146”的编号。
+                      贴身所穿的为装有细菌病毒受体和L选择素的辅助背心，辅助背心外部套有普通的修身圆领短袖T恤衫，最外层着长袖长裤的工作套装，腰部系有腰带，胸前、上臂外侧、臀部、大腿外侧和小腿外侧均有对称的两个口袋。
+                      上臂外侧的口袋封口处有带“WBC”字样的魔术贴，右侧大腿外侧的口袋中装有对讲机，右侧小腿外侧的口袋中装有水解酶喷雾。
+                      腰带上挂有6把小型飞刀和4把匕首，飞刀在腰带的开关两侧，各3把；匕首在身体两侧各挂有1把，后腰中间交叉挂有2把，大腿外侧也绑有2把匕首，共6把。
+                      手上戴白色薄手套，脚上穿系带式半高筒靴子。
+                      骨髓细胞与中幼粒细胞时期的衣着亦全部为白色。头戴没有字和编号牌的运动帽，穿圆领短袖T恤衫和五分宽腿短裤，系有腰带，腰带上挂有一把练习用的橡皮小匕首。脚上穿短袜和没有鞋带的运动鞋，戴有护肘和护膝。
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="thumbnail">
+            <img src="images/teacher2.jpg" alt="红细胞">
+            <div class="caption">
+              <h3>红细胞</h3>
+              <p>迷路才好玩</p>
+              <!--Bootstrap模态框-->
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                详细
+              </button>
+              <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-body">
+                      相貌衣着
+                      相貌
+                      白色短发，前额留较长的右偏三七分刘海儿，遮住右眼，只露出左眼，眼睛为纯黑色。
+                      漫画中皮肤略有血色，动画中皮肤与发色一样为白色。面部皮肤以双耳上缘-颧骨最高处-鼻梁中央划一条线，上部分颜色较深。
+                      衣着
+                      身上的全部衣着及装备均为白色，头戴写有“白细胞”的运动帽，帽檐上方左侧标记有“1146”的编号。
+                      贴身所穿的为装有细菌病毒受体和L选择素的辅助背心，辅助背心外部套有普通的修身圆领短袖T恤衫，最外层着长袖长裤的工作套装，腰部系有腰带，胸前、上臂外侧、臀部、大腿外侧和小腿外侧均有对称的两个口袋。
+                      上臂外侧的口袋封口处有带“WBC”字样的魔术贴，右侧大腿外侧的口袋中装有对讲机，右侧小腿外侧的口袋中装有水解酶喷雾。
+                      腰带上挂有6把小型飞刀和4把匕首，飞刀在腰带的开关两侧，各3把；匕首在身体两侧各挂有1把，后腰中间交叉挂有2把，大腿外侧也绑有2把匕首，共6把。
+                      手上戴白色薄手套，脚上穿系带式半高筒靴子。
+                      骨髓细胞与中幼粒细胞时期的衣着亦全部为白色。头戴没有字和编号牌的运动帽，穿圆领短袖T恤衫和五分宽腿短裤，系有腰带，腰带上挂有一把练习用的橡皮小匕首。脚上穿短袜和没有鞋带的运动鞋，戴有护肘和护膝。
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="thumbnail">
+            <img src="images/teacher3.jpg" alt="巨噬细胞">
+            <div class="caption">
+              <h3>巨噬细胞</h3>
+              <p>细胞反正比我好看</p>
+              <!--Bootstrap模态框-->
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                详细
+              </button>
+              <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-body">
+                      相貌衣着
+                      相貌
+                      白色短发，前额留较长的右偏三七分刘海儿，遮住右眼，只露出左眼，眼睛为纯黑色。
+                      漫画中皮肤略有血色，动画中皮肤与发色一样为白色。面部皮肤以双耳上缘-颧骨最高处-鼻梁中央划一条线，上部分颜色较深。
+                      衣着
+                      身上的全部衣着及装备均为白色，头戴写有“白细胞”的运动帽，帽檐上方左侧标记有“1146”的编号。
+                      贴身所穿的为装有细菌病毒受体和L选择素的辅助背心，辅助背心外部套有普通的修身圆领短袖T恤衫，最外层着长袖长裤的工作套装，腰部系有腰带，胸前、上臂外侧、臀部、大腿外侧和小腿外侧均有对称的两个口袋。
+                      上臂外侧的口袋封口处有带“WBC”字样的魔术贴，右侧大腿外侧的口袋中装有对讲机，右侧小腿外侧的口袋中装有水解酶喷雾。
+                      腰带上挂有6把小型飞刀和4把匕首，飞刀在腰带的开关两侧，各3把；匕首在身体两侧各挂有1把，后腰中间交叉挂有2把，大腿外侧也绑有2把匕首，共6把。
+                      手上戴白色薄手套，脚上穿系带式半高筒靴子。
+                      骨髓细胞与中幼粒细胞时期的衣着亦全部为白色。头戴没有字和编号牌的运动帽，穿圆领短袖T恤衫和五分宽腿短裤，系有腰带，腰带上挂有一把练习用的橡皮小匕首。脚上穿短袜和没有鞋带的运动鞋，戴有护肘和护膝。
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="thumbnail">
+            <img src="images/teacher4.jpg" alt="血小板">
+            <div class="caption">
+              <h3>血小板</h3>
+              <p>萌即是正义</p>
+              <!--Bootstrap模态框-->
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                详细
+              </button>
+              <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-body">
+                      相貌衣着
+                      相貌
+                      白色短发，前额留较长的右偏三七分刘海儿，遮住右眼，只露出左眼，眼睛为纯黑色。
+                      漫画中皮肤略有血色，动画中皮肤与发色一样为白色。面部皮肤以双耳上缘-颧骨最高处-鼻梁中央划一条线，上部分颜色较深。
+                      衣着
+                      身上的全部衣着及装备均为白色，头戴写有“白细胞”的运动帽，帽檐上方左侧标记有“1146”的编号。
+                      贴身所穿的为装有细菌病毒受体和L选择素的辅助背心，辅助背心外部套有普通的修身圆领短袖T恤衫，最外层着长袖长裤的工作套装，腰部系有腰带，胸前、上臂外侧、臀部、大腿外侧和小腿外侧均有对称的两个口袋。
+                      上臂外侧的口袋封口处有带“WBC”字样的魔术贴，右侧大腿外侧的口袋中装有对讲机，右侧小腿外侧的口袋中装有水解酶喷雾。
+                      腰带上挂有6把小型飞刀和4把匕首，飞刀在腰带的开关两侧，各3把；匕首在身体两侧各挂有1把，后腰中间交叉挂有2把，大腿外侧也绑有2把匕首，共6把。
+                      手上戴白色薄手套，脚上穿系带式半高筒靴子。
+                      骨髓细胞与中幼粒细胞时期的衣着亦全部为白色。头戴没有字和编号牌的运动帽，穿圆领短袖T恤衫和五分宽腿短裤，系有腰带，腰带上挂有一把练习用的橡皮小匕首。脚上穿短袜和没有鞋带的运动鞋，戴有护肘和护膝。
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="thumbnail">
+            <img src="images/teacher4.jpg" alt="血小板">
+            <div class="caption">
+              <h3>血小板</h3>
+              <p>萌即是正义</p>
+              <!--Bootstrap模态框-->
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                详细
+              </button>
+              <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-body">
+                      相貌衣着
+                      相貌
+                      白色短发，前额留较长的右偏三七分刘海儿，遮住右眼，只露出左眼，眼睛为纯黑色。
+                      漫画中皮肤略有血色，动画中皮肤与发色一样为白色。面部皮肤以双耳上缘-颧骨最高处-鼻梁中央划一条线，上部分颜色较深。
+                      衣着
+                      身上的全部衣着及装备均为白色，头戴写有“白细胞”的运动帽，帽檐上方左侧标记有“1146”的编号。
+                      贴身所穿的为装有细菌病毒受体和L选择素的辅助背心，辅助背心外部套有普通的修身圆领短袖T恤衫，最外层着长袖长裤的工作套装，腰部系有腰带，胸前、上臂外侧、臀部、大腿外侧和小腿外侧均有对称的两个口袋。
+                      上臂外侧的口袋封口处有带“WBC”字样的魔术贴，右侧大腿外侧的口袋中装有对讲机，右侧小腿外侧的口袋中装有水解酶喷雾。
+                      腰带上挂有6把小型飞刀和4把匕首，飞刀在腰带的开关两侧，各3把；匕首在身体两侧各挂有1把，后腰中间交叉挂有2把，大腿外侧也绑有2把匕首，共6把。
+                      手上戴白色薄手套，脚上穿系带式半高筒靴子。
+                      骨髓细胞与中幼粒细胞时期的衣着亦全部为白色。头戴没有字和编号牌的运动帽，穿圆领短袖T恤衫和五分宽腿短裤，系有腰带，腰带上挂有一把练习用的橡皮小匕首。脚上穿短袜和没有鞋带的运动鞋，戴有护肘和护膝。
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="thumbnail">
+            <img src="images/teacher4.jpg" alt="血小板">
+            <div class="caption">
+              <h3>血小板</h3>
+              <p>萌即是正义</p>
+              <!--Bootstrap模态框-->
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                详细
+              </button>
+              <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-body">
+                      相貌衣着
+                      相貌
+                      白色短发，前额留较长的右偏三七分刘海儿，遮住右眼，只露出左眼，眼睛为纯黑色。
+                      漫画中皮肤略有血色，动画中皮肤与发色一样为白色。面部皮肤以双耳上缘-颧骨最高处-鼻梁中央划一条线，上部分颜色较深。
+                      衣着
+                      身上的全部衣着及装备均为白色，头戴写有“白细胞”的运动帽，帽檐上方左侧标记有“1146”的编号。
+                      贴身所穿的为装有细菌病毒受体和L选择素的辅助背心，辅助背心外部套有普通的修身圆领短袖T恤衫，最外层着长袖长裤的工作套装，腰部系有腰带，胸前、上臂外侧、臀部、大腿外侧和小腿外侧均有对称的两个口袋。
+                      上臂外侧的口袋封口处有带“WBC”字样的魔术贴，右侧大腿外侧的口袋中装有对讲机，右侧小腿外侧的口袋中装有水解酶喷雾。
+                      腰带上挂有6把小型飞刀和4把匕首，飞刀在腰带的开关两侧，各3把；匕首在身体两侧各挂有1把，后腰中间交叉挂有2把，大腿外侧也绑有2把匕首，共6把。
+                      手上戴白色薄手套，脚上穿系带式半高筒靴子。
+                      骨髓细胞与中幼粒细胞时期的衣着亦全部为白色。头戴没有字和编号牌的运动帽，穿圆领短袖T恤衫和五分宽腿短裤，系有腰带，腰带上挂有一把练习用的橡皮小匕首。脚上穿短袜和没有鞋带的运动鞋，戴有护肘和护膝。
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</article>
+
+<!--侧栏-->
+<div class="side-bar">
+  <a href="index.html" class="icon-chat" title="微信公众号">微信
+    <div class="chat-tips">
+      <img src="images/wechat.jpg" alt="微信公众号" />
+    </div>
+  </a>
+  <a href="#logo" class="icon-top">顶部</a>
+</div>
+
+<!--footer-->
+<!--想要footer固定在底栏使用：class="footer navbar-fixed-bottom"-->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5">
+        <address>
+          <p>
+            <span class="glyphicon glyphicon-copyright-mark"></span>
+            &nbsp;
+            CopyRight©2019 计算机专业招生工作办公室
+          </p>
+          <p>
+            <span class="glyphicon glyphicon-home"></span>
+            &nbsp;
+            地址：陕西省西安市未央大学园区 邮编：710021
+          </p>
+        </address>
+      </div>
+      <div class="col-md-4">
+        <address >
+          <p>
+            <span class="glyphicon glyphicon-phone-alt"></span>
+            &nbsp;
+            咨询电话：029-86168100 86168101
+          </p>
+          <p>
+            <span class="glyphicon glyphicon-envelope"></span>
+            &nbsp;
+            邮箱:test@sust.edu.cn
+          </p>
+        </address>
+      </div>
+      <div class="col-md-3">
+        <img src="images/sust-logo.png" class="img-responsive" alt="sust">
+      </div>
+    </div>
+  </div>
+</footer>
+<!--footer-->
+
+<!--注意，jQuery一定要在Bootstrap之前，这是因为Bootstrap使用了jQuery-->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<!--平滑移动js-->
+<script src="js/jquery.scrollTo.min.js"></script>
+<!--设置图片轮播时间为3000ms-->
+<script>
+  $(function(){
+    $('#myCarousel').carousel({
+      interval: 3000
+    });
+  });
+</script>
+<!--平滑返回顶部-->
+<script>
+  $(function(){
+    $(".icon-top").click(function(){
+      $.scrollTo('#logo',1500);
+    });
+  });
+</script>
+
+</body>
+</html>
