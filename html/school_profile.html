@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="css/bootstrap.min.css"/>
   <!--自定义了一个css文件，用于覆盖Bootstrap中的样式-->
   <link rel="stylesheet" href="css/index.css"/>
-  <link rel="stylesheet" href="css/school_profile.css"/>
+  <link rel="stylesheet" href="css/school.css"/>
 
 </head>
 
@@ -627,11 +627,21 @@
 <!--注意，jQuery一定要在Bootstrap之前，这是因为Bootstrap使用了jQuery-->
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<!--平滑移动js-->
+<script src="js/jquery.scrollTo.min.js"></script>
 <!--设置图片轮播时间为3000ms-->
 <script>
   $(function(){
     $('#myCarousel').carousel({
       interval: 3000
+    });
+  });
+</script>
+<!--平滑返回顶部-->
+<script>
+  $(function(){
+    $(".icon-top").click(function(){
+      $.scrollTo('#logo',1500);
     });
   });
 </script>

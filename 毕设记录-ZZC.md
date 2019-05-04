@@ -97,3 +97,17 @@
 完成了PHP后台的初步部署，同时实现了首页的展示效果。[点击跳转19.5.1](./后台流程全记录.md)
 
 接着完成其他页面的设计。
+
+## 19.5.3 网络重置
+
+VMware的虚拟机网络真的能把人烦死，简直想要直接部署到云上了。
+
+网卡ens33启动失败，使用如下命令修复成功：
+
+```shell
+systemctl stop NetworkManager
+systemctl disable NetworkManager
+systemctl start network.service
+```
+
+[参考链接](https://blog.csdn.net/selfsojourner/article/details/72510432)

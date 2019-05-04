@@ -8,10 +8,11 @@
   <link rel="stylesheet" href="css/bootstrap.min.css"/>
   <!--自定义了一个css文件，用于覆盖Bootstrap中的样式-->
   <link rel="stylesheet" href="css/index.css"/>
+  <link rel="stylesheet" href="css/profile.css"/>
 
 </head>
 
-<body>
+<body data-spy="scroll" data-target="#scrollspy">
 <!--logo-->
 <!--#logo 会寻找到当前页面下id="home"的位置，点击之后自动滚动到该位置-->
 <div class="container" id="logo">
@@ -59,7 +60,7 @@
               <li><a href="#">师资力量</a></li>
             </ul>
           </li>
-          <li role="presentation" class="dropdown active">
+          <li role="presentation" class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
               信息查询<span class="caret"></span>
             </a>
@@ -109,6 +110,39 @@
     </div>
   </section>
 
+  <section id="profile_professional">
+    <div class="container">
+      <div class="jumbotron">
+      </div>
+      <div class="row">
+          <div class="col-md-3" id="scrollspy">
+          <ul class="nav nav-tabs nav-stacked" data-spy="affix" data-offset-top="300">
+            <li class="active"><a href="#section-1">专业信息</a></li>
+            <li><a href="#section-2">所属院系</a></li>
+            <li><a href="#section-3">发展前景</a></li>
+            <li><a href="#section-4">人才培养</a></li>
+          </ul>
+        </div>
+        <div class="col-md-9">
+          <div class="school_profile_container">
+            <h3 id="section-1">专业信息</h3>
+            本专业拥有硕士学位授予权，培养掌握知识、具备能力和素质的计算机专业工程技术人才。本专业已形成特色鲜明的实践教学实训体系，Oracle、软通动力、H3C等国内外著名IT企业先后在本专业建立了实训基地，良好的实践教学条件为每位学生提供了大量实践训练机会
+            <hr>
+            <h3 id="section-2">所属院系</h3>
+            本专业属于电子信息与人工智能学院下属的计算机类
+            <hr>
+            <h3 id="section-3">发展前景</h3>
+            计算机专业作为当下十大热门专业之一，其每年相关人才需求量高达64万人次，而且随着国内信息化进程的深入，互联网的快速发展，越来越多的企业逐渐使用计算机办公，因此预计到2019年，计算机专业人才全年需求量将达到七~八百万人次。
+
+            据保守估计，目前中国市场对IT人才的需求每年超过20万人。计算机专业一直是全国各大高校的热门专业，发展迅猛。IT业一直是国家优先发展的重点行业，也是国内外人才需求量最大的行业之一。伴随着互联网的发展，IT人才的短缺现象将会越来越严重。在我国，IC人才、网络存储人才、电子商务人才、信息安全人才、游戏技术人才严重短缺。
+            <hr>
+            <h3 id="section-4">人才培养</h3>
+            计算机专业延展性极强，与其他学科交叉较多，所以知识技能的迁移能力是本专业重点培养的。移动互联网的发展让电商经济成为国民经济中重要组成部分，计算机专业与移动互联网以及电商经济的融合是未来发展趋势。基于此，本专业的培养目标主要体现熟练掌握计算机的基本架构、原理及实验方法，并能进行相关软硬件的开发。所以对本专业学生的培养还需加以其他专业知识的辅助，比如经济管理学以及人文知识等，这样才能丰富学生的知识结构，触类旁通。另外在能力方面，还需要加强其理论联系实际的锻炼，挖掘潜力，培养创新思维。
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </article>
 
 <!--侧栏-->
