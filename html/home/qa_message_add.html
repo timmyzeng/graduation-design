@@ -5,11 +5,11 @@
   <meta http-equiv="x-ua-compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <title>计算机专业招生宣传网</title>
-  <link rel="stylesheet" href="css/bootstrap.min.css"/>
-  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="../css/animate.css">
   <!--自定义了一个css文件，用于覆盖Bootstrap中的样式-->
-  <link rel="stylesheet" href="css/index.css"/>
-  <link rel="stylesheet" href="css/message.css"/>
+  <link rel="stylesheet" href="../css/home/index.css"/>
+  <link rel="stylesheet" href="../css/home/message.css"/>
 
 </head>
 
@@ -20,7 +20,7 @@
   <div class="row">
     <div class="col-md-12">
       <!--logo的设置-->
-      <img src="images/sust-logo-top.png" alt="sust-logo-top" href="index.html" class="img-responsive">
+      <img src="../images/home/sust-logo-top.png" alt="sust-logo-top" href="index.html" class="img-responsive">
       <!--<a href="index.html" class="navbar-brand">计算机专业</a>-->
     </div>
   </div>
@@ -49,10 +49,11 @@
         <!--添加了nav之后，li的样式被取消了-->
         <ul class="nav navbar-nav">
           <!--active当前活动的标签-->
-          <li class="active"><a href="index.html">招生首页</a></li>
+          <li class="active"><a href="../index.html">招生首页</a></li>
           <li><a href="school_profile.html">学校简介</a></li>
           <li role="presentation" class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="profile_professional.html" role="button" aria-haspopup="true" aria-expanded="false">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="profile_professional.html" role="button"
+               aria-haspopup="true" aria-expanded="false">
               专业简介<span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
@@ -62,7 +63,8 @@
             </ul>
           </li>
           <li role="presentation" class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="inquiry_admission.html" role="button" aria-haspopup="true" aria-expanded="false">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="inquiry_admission.html" role="button"
+               aria-haspopup="true" aria-expanded="false">
               信息查询<span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
@@ -99,7 +101,7 @@
             </div>
           </div>
         </a>
-        <a href="index.html">
+        <a href="../index.html">
           <div class="col-md-4">
             <div class="quick_entry_pic">
               <span class="glyphicon glyphicon-tasks"></span>
@@ -121,31 +123,66 @@
               <p>请留下你的想法</p>
             </div>
             <div>
-              <form action="qa_message_show.html" method="post">
-                <div class="row">
-                  <div class="col-md-3"></div>
-                  <div class="col-md-6">
-                    <div class="input-group">
-                      <input type="text" class="form-control" placeholder="用户名" aria-describedby="basic-addon1">
+              <form action="qa_message_show.html" method="post" role="form">
+                <div>
+                  <!-- 头像选择 start -->
+                  <div class="cmt-ico" style="position: relative">
+                    <a class="head-ico show-ico-btn" title="选择头像"><img
+                            class="focus-ico"
+                            src="../images/home/user1.jpg"
+                            alt="选择头像" width="75px" height="75px">
+                    </a>
+                    <!-- 弹出窗口  start-->
+                    <div class="pop-ico" style="display: none">
+                      <div class="ico-title">
+                        <span>选择头像</span>
+                        <a title="关闭窗口" class="hide-ico-btn">x</a>
+                      </div>
+                      <div class="ico-list">
+                        <a data-src="images/user1.jpg" class="cur"><img src="../images/home/user1.jpg" width="75px"
+                                                                        height="75px"></a>
+                        <a data-src="images/user2.jpg"><img src="../images/home/user2.jpg" width="75px" height="75px"></a>
+                        <a data-src="images/user3.jpg"><img src="../images/home/user3.jpg" width="75px" height="75px"></a>
+                        <a data-src="images/user3.jpg"><img src="../images/home/user4.jpg" width="75px" height="75px"></a>
+                        <a data-src="images/user3.jpg"><img src="../images/home/user5.jpg" width="75px" height="75px"></a>
+                        <a data-src="images/user3.jpg"><img src="../images/home/user6.jpg" width="75px" height="75px"></a>
+                      </div>
                     </div>
-                    <div class="input-group">
-                      <input type="text" class="form-control" placeholder="省份" aria-describedby="basic-addon1">
-                    </div>
-                    <div class="input-group">
-                      <input type="text" class="form-control" placeholder="学科" aria-describedby="basic-addon1">
-                    </div>
-                    <div class="input-group">
-                      <input type="text" class="form-control" placeholder="头像" aria-describedby="basic-addon1">
-                    </div>
-                    <div class="input-group">
-                      <input type="text" class="form-control" placeholder="留言内容" aria-describedby="basic-addon1">
-                    </div>
-
-                    <button type="submit" class="btn btn-primary" style="margin-top: 40px;">留言</button>
-                    <button type="button" class="btn btn-primary" style="margin-top: 40px;">重置</button>
+                    <!-- 弹出窗口  end-->
                   </div>
-                  <div class="col-md-3"></div>
+                  <!-- 头像选择 end -->
                 </div>
+
+                <div class="input-group" style="width: 100%;">
+                  <input type="text" class="form-control" placeholder="用户名：请输入4-15个字符" aria-describedby="basic-addon1" style="width: 60%;">
+                  <label for="province">
+                    <select class="form-control" id="province">
+                      <option value="" disabled selected hidden>省份</option>
+                      <option value="shanxi">陕西省</option>
+                      <option value="shanghai">上海市</option>
+                      <option value="beijing">北京市</option>
+                      <option value="zhejiang">浙江省</option>
+                      <option value="guangdong">广东省</option>
+                    </select>
+                  </label>
+                  <label for="course">
+                    <select class="form-control" id="course">
+                      <option value="" disabled selected hidden>学科</option>
+                      <option value="wenshi">文史</option>
+                      <option value="ligong">理工</option>
+                      <option value="yishu">艺术</option>
+                    </select>
+                  </label>
+                </div>
+
+                <div class="input-group">
+                  <textarea class="form-control" placeholder="留言内容" rows="10" cols="100"></textarea>
+                </div>
+                <div style="text-align: center">
+                  <button type="submit" class="btn btn-primary" style="width: 75px;">留言</button>
+                  <button type="button" class="btn btn-primary" style="width: 75px;">重置</button>
+                </div>
+
               </form>
             </div>
           </div>
@@ -159,9 +196,9 @@
 
 <!--侧栏-->
 <div class="side-bar">
-  <a href="index.html" class="icon-chat" title="微信公众号">微信
+  <a href="../index.html" class="icon-chat" title="微信公众号">微信
     <div class="chat-tips">
-      <img src="images/wechat.jpg" alt="微信公众号" />
+      <img src="../images/home/wechat.jpg" alt="微信公众号"/>
     </div>
   </a>
   <a href="#logo" class="icon-top" title="返回顶部">顶部</a>
@@ -187,7 +224,7 @@
         </address>
       </div>
       <div class="col-md-4">
-        <address >
+        <address>
           <p>
             <span class="glyphicon glyphicon-phone-alt"></span>
             &nbsp;
@@ -201,7 +238,7 @@
         </address>
       </div>
       <div class="col-md-3">
-        <img src="images/sust-logo.png" class="img-responsive" alt="sust">
+        <img src="../images/home/sust-logo.png" class="img-responsive" alt="sust">
       </div>
     </div>
   </div>
@@ -209,13 +246,15 @@
 <!--footer-->
 
 <!--注意，jQuery一定要在Bootstrap之前，这是因为Bootstrap使用了jQuery-->
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
 <!--平滑移动js-->
-<script src="js/jquery.scrollTo.min.js"></script>
+<script src="../js/jquery.scrollTo.min.js"></script>
+<script type="text/javascript" src="../js/home/pop-ico.js"></script>
+
 <!--设置图片轮播时间为3000ms-->
 <script>
-  $(function(){
+  $(function () {
     $('#myCarousel').carousel({
       interval: 3000
     });
@@ -223,9 +262,9 @@
 </script>
 <!--平滑返回顶部-->
 <script>
-  $(function(){
-    $(".icon-top").click(function(){
-      $.scrollTo('#logo',1500);
+  $(function () {
+    $(".icon-top").click(function () {
+      $.scrollTo('#logo', 1500);
     });
   });
 </script>

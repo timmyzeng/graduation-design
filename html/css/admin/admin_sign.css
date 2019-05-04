@@ -1,0 +1,17 @@
+#admin_sign div.panel-primary {
+  margin-top: 350px;
+}
+
+#admin_sign div.panel-heading>p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#admin_sign div.panel-body {
+  margin-top: 50px;
+}
+
+button.btn.btn-primary {
+  margin-top: 25px;
+}

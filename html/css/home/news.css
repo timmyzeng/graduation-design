@@ -1,0 +1,32 @@
+#news_show div.panel-heading>p, #news_more div.panel-heading>p{
+  text-align: left;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+#news_show div.panel-primary, #news_more div.panel-primary{
+  margin-top: 25px;
+}
+
+#news_show li.list-group-item{
+  border: 1px dashed #ddd;
+  padding: 10px 15px 0 15px;
+}
+
+#news_show a{
+  text-decoration: none;
+}
+
+#news_show li.list-group-item>a{
+  color: #000000;
+}
+
+#news_show li.list-group-item>a:hover{
+  color: #226eb1;
+}
+
+#news_show small{
+  font-size: 70%;
+  padding-top: 12px;
+}

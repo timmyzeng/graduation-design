@@ -1,0 +1,113 @@
+#qa_message_show img {
+  width: 70px;
+  height: 70px;
+}
+
+#qa_message_show div.col-md-12 {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+#qa_message_show div.panel-heading > p, #qa_message_add div.panel-heading > p {
+  text-align: left;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+#qa_message_show div.media {
+  margin-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+#qa_message_show hr {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+#qa_message_show .admin {
+  text-align: right;
+}
+
+/*qa_message_add*/
+
+#qa_message_add div.panel-primary {
+  margin-top: 20px;
+}
+
+/*头像选择框*/
+#qa_message_add form{
+  padding: 15px;
+}
+#qa_message_add a {
+  text-decoration: none;
+}
+
+#qa_message_add .cmt-ico .head-ico img {
+  border: 1px dashed #F60;
+  padding: 2px;
+  margin-bottom: 15px;
+}
+
+#qa_message_add .pop-ico {
+  position: absolute;
+  width: 250px;
+  min-height: 130px;
+  top: 0;
+  left: 80px;
+  background: #FFF;
+  border: 1px solid #D7D7D7;
+  z-index: 100
+}
+
+#qa_message_add .pop-ico .ico-title {
+  padding: 5px;
+  color: #fff;
+  background-color: #337ab7;
+  border: 1px solid #F0F0F0;
+}
+
+#qa_message_add .pop-ico .ico-title a {
+  cursor: pointer;
+  display: block;
+  width: 15px;
+  height: 15px;
+  text-align: center;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  color: #FFFFFF;
+}
+
+#qa_message_add .pop-ico .ico-list {
+  padding: 7px
+}
+
+#qa_message_add .pop-ico .ico-list a img {
+  border: 1px dashed #DDD;
+  cursor: pointer;
+}
+
+#qa_message_add .pop-ico .ico-list a:hover img, #qa_message_add .pop-ico .ico-list .cur img {
+  border: 1px dashed #F60;
+}
+/*end 头像选择框*/
+
+#qa_message_add div.input-group {
+  margin-bottom: 10px;
+}
+
+/*省份 课程*/
+select#province, select#course {
+  width: 90px;
+  margin-left: 25px;
+}
+/*end 省份 课程*/
+
+/*留言内容*/
+#qa_message_add textarea {
+  resize: none;
+}
+/*end 留言内容*/
+/*end qa_message_add*/

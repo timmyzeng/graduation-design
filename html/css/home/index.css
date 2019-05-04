@@ -149,16 +149,32 @@ a.left.carousel-control:hover, a.right.carousel-control:hover{
   font-size: 70%;
   padding-top: 12px;
 }
-/*留言板表情*/
-.wh64{
-  width: 64px;
-  height: 64px;
-  border-radius:50% ;
+/*留言板*/
+#message img {
+  width: 70px;
+  height: 70px;
 }
+
+#message div.media {
+  margin-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+#message hr {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+#message .admin {
+  text-align: right;
+}
+/*end 留言板*/
+
 
 /*sidebar*/
 .side-bar a,.chat-tips i {
-  background-image: url(../images/sidebar.png);
+  background-image: url(../../images/home/sidebar.png);
   background-repeat: no-repeat;
   background-size: 150px;
 }
