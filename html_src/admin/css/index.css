@@ -1,0 +1,42 @@
+.navbar.navbar-default {
+  background-color: #337ab7;
+}
+
+.navbar-collapse.collapse {
+  margin-top: 15px;
+  margin-bottom: 8px;
+}
+
+.navbar-brand {
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.navbar-default .navbar-brand, .navbar-default .navbar-nav>li>a {
+  color: #ffffff;
+}
+
+div.panel-heading>a:hover, .navbar-default .navbar-nav>li>a:hover {
+  color: #a94442;
+}
+
+.panel-primary {
+  height: 343px;
+}
+.panel-primary>.panel-heading {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.thumbnail {
+  border: none;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+
+.button-style {
+  text-align: center;
+  font-weight: bold;
+}
