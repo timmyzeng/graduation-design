@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CH">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <title>计算机专业招生宣传网</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="css/animate.css">
+  <!--自定义了一个css文件，用于覆盖Bootstrap中的样式-->
+  <link rel="stylesheet" href="css/index.css"/>
+  <link rel="stylesheet" href="css/news.css"/>
+
+</head>
+
+<body>
+<!--logo-->
+<!--#logo 会寻找到当前页面下id="home"的位置，点击之后自动滚动到该位置-->
+<div class="container" id="logo">
+  <div class="row">
+    <div class="col-md-12">
+      <!--logo的设置-->
+      <img src="images/sust-logo-top.png" alt="sust-logo-top" href="index.html" class="img-responsive">
+      <!--<a href="index.home" class="navbar-brand">计算机专业</a>-->
+    </div>
+  </div>
+</div>
+
+<article>
+  <!--导航-->
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <!--小屏幕导航按钮和logo-->
+      <!--这个div必须要添加，用于下文的导航进行分割-->
+      <div class="navbar-header">
+        <!--只有navbar-toggle样式的button是不能点击-->
+        <!--需要添加样式的绑定data-target，绑定的样式是下面的class-->
+        <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <!--incon-bar有几个就会有个按钮线-->
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <!--小屏幕导航按钮和logo-->
+
+      <!--logo下方导航-->
+      <div class="navbar-collapse collapse">
+        <!--添加了nav之后，li的样式被取消了-->
+        <ul class="nav navbar-nav">
+          <!--active当前活动的标签-->
+          <li><a href="index.html">招生首页</a></li>
+          <li><a href="school_profile.html">学校简介</a></li>
+          <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="profile_professional.html" role="button"
+               aria-haspopup="true" aria-expanded="false">
+              专业简介<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="profile_professional.html">专业介绍</a></li>
+              <li><a href="profile_courses.html">课程介绍</a></li>
+              <li><a href="profile_teacher.html">师资力量</a></li>
+            </ul>
+          </li>
+          <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="inquiry_admission.html" role="button"
+               aria-haspopup="true" aria-expanded="false">
+              信息查询<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="inquiry_admission.html">录取查询</a></li>
+              <li><a href="inquiry_enrollment_plan.html">招生计划及录取情况</a></li>
+            </ul>
+          </li>
+          <li><a href="qa_message_show.html">QA留言板</a></li>
+          <li class="active"><a href="news_show.html">热点资讯</a></li>
+        </ul>
+      </div>
+      <!--logo下方导航-->
+    </div>
+  </nav>
+  <!--导航-->
+
+  <!--快捷入口-->
+  <section id="quick_entry">
+    <div class="container">
+      <div class="row">
+        <a href="inquiry_admission.html">
+          <div class="col-md-4">
+            <div class="quick_entry_pic">
+              <span class="glyphicon glyphicon-user"></span>
+              <p><strong>录取查询</strong></p>
+            </div>
+          </div>
+        </a>
+        <a href="profile_professional.html">
+          <div class="col-md-4">
+            <div class="quick_entry_pic">
+              <span class="glyphicon glyphicon-list-alt"></span>
+              <p><strong>专业介绍</strong></p>
+            </div>
+          </div>
+        </a>
+        <a href="inquiry_enrollment_plan.html">
+          <div class="col-md-4">
+            <div class="quick_entry_pic">
+              <span class="glyphicon glyphicon-tasks"></span>
+              <p><strong>招生计划</strong></p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+  <!--end quick_entry-->
+
+  <!--news-->
+  <section id="news_show">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <p>最新资讯</p>
+            </div>
+            <ul class="list-group">
+              <li class="list-group-item">
+                <a href="index.html">
+                  <p><strong>我校召开电气与控制工程学院、电子信息与人工智能学院成立大会</strong>
+                    <small class="pull-right">2019.4.29</small>
+                  </p>
+                </a>
+              </li>
+            </ul>
+            <ul class="list-group">
+              <li class="list-group-item">
+                <a href="index.html">
+                  <p><strong>传承薪火 迈向未来——我校迎来首个西迁纪念日</strong>
+                    <small class="pull-right">2019.4.29</small>
+                  </p>
+                </a>
+              </li>
+            </ul>
+            <ul class="list-group">
+              <li class="list-group-item">
+                <a href="index.html">
+                  <p><strong>我校获7项中国轻工业联合会科技奖1个中国轻工业工程技术研究中心...</strong>
+                    <small class="pull-right">2019.4.29</small>
+                  </p>
+                </a>
+              </li>
+            </ul>
+            <ul class="list-group">
+              <li class="list-group-item">
+                <a href="index.html">
+                  <p><strong>聚力招生宣传：近600名学子寒假走访19个省（市）230余所目标中学</strong>
+                    <small class="pull-right">2019.4.29</small>
+                  </p>
+                </a>
+              </li>
+            </ul>
+            <ul class="list-group">
+              <li class="list-group-item">
+                <a href="index.html">
+                  <p><strong>人才培养数据现“开门红” 陕科大：学科竞赛融入育人全过程</strong>
+                    <small class="pull-right">2019.4.29</small>
+                  </p>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</article>
+
+<!--侧栏-->
+<div class="side-bar">
+  <a href="index.html" class="icon-chat" title="微信公众号">微信
+    <div class="chat-tips">
+      <img src="images/wechat.jpg" alt="微信公众号"/>
+    </div>
+  </a>
+  <a href="#logo" class="icon-top" title="返回顶部">顶部</a>
+</div>
+
+<!--footer-->
+<!--想要footer固定在底栏使用：class="footer navbar-fixed-bottom"-->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5">
+        <address>
+          <p>
+            <span class="glyphicon glyphicon-copyright-mark"></span>
+            &nbsp;
+            CopyRight©2019 计算机专业招生工作办公室
+          </p>
+          <p>
+            <span class="glyphicon glyphicon-home"></span>
+            &nbsp;
+            地址：陕西省西安市未央大学园区 邮编：710021
+          </p>
+        </address>
+      </div>
+      <div class="col-md-4">
+        <address>
+          <p>
+            <span class="glyphicon glyphicon-phone-alt"></span>
+            &nbsp;
+            咨询电话：029-86168100 86168101
+          </p>
+          <p>
+            <span class="glyphicon glyphicon-envelope"></span>
+            &nbsp;
+            邮箱:test@sust.edu.cn
+          </p>
+        </address>
+      </div>
+      <div class="col-md-3">
+        <img src="images/sust-logo.png" class="img-responsive" alt="sust">
+      </div>
+    </div>
+  </div>
+</footer>
+<!--footer-->
+
+<!--注意，jQuery一定要在Bootstrap之前，这是因为Bootstrap使用了jQuery-->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<!--平滑移动js-->
+<script src="js/jquery.scrollTo.min.js"></script>
+<!--设置图片轮播时间为3000ms-->
+<script>
+  $(function () {
+    $('#myCarousel').carousel({
+      interval: 3000
+    });
+  });
+</script>
+<!--平滑返回顶部-->
+<script>
+  $(function () {
+    $(".icon-top").click(function () {
+      $.scrollTo('#logo', 1500);
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CH">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <title>管理员后台</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="css/animate.css">
+
+  <link rel="stylesheet" href="css/admin_sign.css"/>
+</head>
+
+<body style="background-color: #f3f3f3">
+<div class="container" id="admin_sign">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <p>管理员登录</p>
+        </div>
+        <div class="panel-body">
+          <form class="form-horizontal" role="form" action="#" method="post">
+
+            <div class="form-group">
+              <label for="username" class="col-sm-2 control-label">用户</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="username"
+                       placeholder="用户名" style="width: 75%;">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="password" class="col-sm-2 control-label">密码</label>
+              <div class="col-sm-10">
+                <input type="password" class="form-control" id="password"
+                       placeholder="密码" style="width: 75%;">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary">登录</button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>
+
+<!--注意，jQuery一定要在Bootstrap之前，这是因为Bootstrap使用了jQuery-->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>
