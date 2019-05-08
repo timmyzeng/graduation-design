@@ -3,11 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="c23fdc0a-4fba-4d3a-80ee-014de8e1e618" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../admin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../admin/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../admin/admin_sign.html" beforeDir="false" afterPath="$PROJECT_DIR$/../admin/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../admin/css/admin_sign.css" beforeDir="false" afterPath="$PROJECT_DIR$/../admin/css/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../admin/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/../admin/css/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../admin/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../admin/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../后台流程全记录.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../后台流程全记录.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../计算机专业招生网站设计与建设.xmind" beforeDir="false" afterPath="$PROJECT_DIR$/../../计算机专业招生网站设计与建设.xmind" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../页面设计.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../页面设计.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -23,10 +22,10 @@
     <session id="-497010030">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.0" value="2" />
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.open.time.1" value="2" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -61,7 +60,7 @@
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
-              <caret line="49" column="28" lean-forward="true" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="28" />
+              <caret line="49" column="28" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -69,8 +68,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inquiry_admission_result.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="589">
-              <caret line="131" column="16" lean-forward="true" selection-start-line="120" selection-start-column="10" selection-end-line="131" selection-end-column="16" />
+            <state relative-caret-position="4061">
+              <caret line="131" column="16" selection-start-line="120" selection-start-column="10" selection-end-line="131" selection-end-column="16" />
               <folding>
                 <element signature="n#style#0;n#button#0;n#a#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#1;n#article#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -178,11 +177,12 @@
       <workItem from="1557028230942" duration="324000" />
       <workItem from="1557028777375" duration="2598000" />
       <workItem from="1557058413275" duration="3828000" />
+      <workItem from="1557130060732" duration="1770000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6750000" />
+    <option name="totallyTimeSpent" value="8520000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -224,26 +224,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="765">
           <caret line="133" column="45" lean-forward="true" selection-start-line="133" selection-start-column="45" selection-end-line="133" selection-end-column="45" />
-          <folding>
-            <element signature="n#style#0;n#button#0;n#div#1;n#div#0;n#form#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#section#1;n#article#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inquiry_admission_result.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
-          <caret line="131" column="16" lean-forward="true" selection-start-line="120" selection-start-column="10" selection-end-line="131" selection-end-column="16" />
-          <folding>
-            <element signature="n#style#0;n#button#0;n#a#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#1;n#article#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
-          <caret line="49" column="28" lean-forward="true" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="28" />
+          <caret line="49" column="28" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inquiry_admission_result.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4061">
+          <caret line="131" column="16" selection-start-line="120" selection-start-column="10" selection-end-line="131" selection-end-column="16" />
+          <folding>
+            <element signature="n#style#0;n#button#0;n#a#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#1;n#article#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

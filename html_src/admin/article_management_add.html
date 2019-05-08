@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CH">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <title>管理员后台</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="css/index.css">
+
+  <script src="ueditor/ueditor.config.js"></script>
+  <script src="ueditor/ueditor.all.min.js"></script>
+  <script src="ueditor/lang/zh-cn/zh-cn.js"></script>
+</head>
+
+<body>
+<!--导航-->
+<nav class="navbar navbar-default">
+  <div class="container">
+    <!--小屏幕导航按钮和logo-->
+    <div class="navbar-header">
+      <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <!--incon-bar有几个就会有个按钮线-->
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!--后台主题-->
+      <p class="navbar-brand">计算机类招生信息网后台管理</p>
+    </div>
+    <!--小屏幕导航按钮和logo-->
+
+    <!--logo右侧导航-->
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;前台首页</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;登出账户</a></li>
+      </ul>
+    </div>
+    <!--end logo下方导航-->
+  </div>
+</nav>
+<!-- end 导航-->
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <div class="panel-group table-responsive" role="tablist">
+        <div class="panel panel-primary leftMenu">
+          <!-- 利用data-target指定要折叠的分组列表 -->
+          <div class="panel-heading" id="collapseListGroupHeading1" data-toggle="collapse"
+               data-target="#collapseListGroup1" role="tab">
+            <h4 class="panel-title">
+              后台管理
+              <span class="glyphicon glyphicon-chevron-up right"></span>
+            </h4>
+          </div>
+          <!-- .panel-collapse和.collapse标明折叠元素 .in表示要显示出来 -->
+          <div id="collapseListGroup1" class="panel-collapse collapse in" role="tabpanel"
+               aria-labelledby="collapseListGroupHeading1">
+            <ul class="list-group">
+              <li class="list-group-item active">
+                <a href="article_management.html" role="button" class="menu-item-left" >
+                  <span class="glyphicon glyphicon-tasks"></span>&nbsp;&nbsp;文章管理
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a href="message_management.html" role="button" class="menu-item-left">
+                  <span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;留言管理
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a href="admission_management.html" role="button" class="menu-item-left">
+                  <span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;录取管理
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a href="admin_management.html" role="button" class="menu-item-left">
+                  <span class="glyphicon glyphicon-bookmark"></span>&nbsp;&nbsp;管理员
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div><!--panel end-->
+      </div>
+    </div>
+    <div class="col-md-10">
+      <div id="page-wrapper">
+        <ul class="nav nav-tabs">
+          <li role="presentation"><a href="#">文章列表</a></li>
+          <li role="presentation" class="active"><a href="#">添加文章</a></li>
+        </ul>
+        <script id="editor" type="text/plain" style="height: 500px;"></script>
+        <script type="text/javascript">
+                var ue = UE.getEditor('editor');
+        </script>
+        <a href="#" type="button" class="btn btn-primary" style="margin-top: 25px;">发布文章</a>
+      </div> <!--end page-wrapper-->
+    </div>
+  </div>
+</div>
+
+<!--注意，jQuery一定要在Bootstrap之前，这是因为Bootstrap使用了jQuery-->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+
+<script>
+  $(function () {
+    $(".panel-heading").click(function (e) {
+      /*切换折叠指示图标*/
+      $(this).find("span").toggleClass("glyphicon-chevron-down");
+      $(this).find("span").toggleClass("glyphicon-chevron-up");
+    });
+  });
+</script>
+
+
+</body>
+</html>

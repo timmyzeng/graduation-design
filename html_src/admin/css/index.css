@@ -3,7 +3,7 @@
 }
 
 .navbar-collapse.collapse {
-  margin-top: 15px;
+  margin-top: 40px;
   margin-bottom: 8px;
 }
 
@@ -12,17 +12,19 @@
   font-weight: bold;
   margin-top: 15px;
 }
+.navbar-default .navbar-brand {
+  color: #ffffff;
+}
+.navbar-default .navbar-brand:hover {
+  color: #ffffff;
 
-.navbar-default .navbar-brand, .navbar-default .navbar-nav>li>a {
+}
+.navbar-default .navbar-nav>li>a {
   color: #ffffff;
 }
 
-div.panel-heading>a:hover, .navbar-default .navbar-nav>li>a:hover {
-  color: #a94442;
-}
-
 .panel-primary {
-  height: 343px;
+  margin-top: 230px;
 }
 .panel-primary>.panel-heading {
   font-size: 16px;
@@ -32,11 +34,59 @@ div.panel-heading>a:hover, .navbar-default .navbar-nav>li>a:hover {
 .thumbnail {
   border: none;
   text-align: center;
-  margin-top: 15px;
+  margin-top: 150px;
   margin-bottom: 0;
 }
 
-.button-style {
-  text-align: center;
+/*左栏*/
+.panel-group {
+  max-height: 770px;
+  overflow: auto;
+}
+
+.leftMenu {
+  margin: 10px;
+  margin-top: 5px;
+}
+
+.leftMenu .panel-heading {
+  font-size: 14px;
+  padding-left: 20px;
+  height: 36px;
+  line-height: 36px;
+  color: white;
+  position: relative;
+  cursor: pointer;
+}
+
+/*转成手形图标*/
+.leftMenu .panel-heading span {
+  position: absolute;
+  right: 10px;
+  top: 12px;
+}
+
+.leftMenu .menu-item-left {
+  padding: 2px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+}
+
+.leftMenu .menu-item-left:hover {
+  background: #C4E3F3;
+  border: 1px solid #1E90FF;
+}
+
+a.menu-item-left {
+  color: #333333;
   font-weight: bold;
+}
+
+a.menu-item-left:hover {
+  text-decoration: none;
+}
+
+#collapseListGroup1 a {
+  color: #000;
 }

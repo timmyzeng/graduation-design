@@ -23,15 +23,15 @@
         <span class="icon-bar"></span>
       </button>
       <!--后台主题-->
-      <a href="index.html" class="navbar-brand">计算机类招生信息网后台管理</a>
+      <p class="navbar-brand">计算机类招生信息网后台管理</p>
     </div>
     <!--小屏幕导航按钮和logo-->
 
     <!--logo右侧导航-->
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;前台首页</a></li>
-          <li><a href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;登出账户</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;前台首页</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;登出账户</a></li>
       </ul>
     </div>
     <!--end logo下方导航-->
@@ -41,54 +41,53 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
-      <div class="panel panel-primary">
-        <div class="panel-heading">
-          管理员信息
-        </div>
-        <a href="#">
-          <div class="thumbnail">
-            <img src="images/admin.jpg">
-            <div class="caption">
-              <h3>当前管理员：Admin</h3>
-            </div>
+    <div class="col-md-2">
+      <div class="panel-group table-responsive" role="tablist">
+        <div class="panel panel-primary leftMenu">
+          <!-- 利用data-target指定要折叠的分组列表 -->
+          <div class="panel-heading" id="collapseListGroupHeading1" data-toggle="collapse"
+               data-target="#collapseListGroup1" role="tab">
+            <h4 class="panel-title">
+              后台管理
+              <span class="glyphicon glyphicon-chevron-up right"></span>
+            </h4>
           </div>
-        </a>
+          <!-- .panel-collapse和.collapse标明折叠元素 .in表示要显示出来 -->
+          <div id="collapseListGroup1" class="panel-collapse collapse in" role="tabpanel"
+               aria-labelledby="collapseListGroupHeading1">
+            <ul class="list-group">
+              <li class="list-group-item">
+                <a href="article_management.html" role="button" class="menu-item-left" >
+                  <span class="glyphicon glyphicon-tasks"></span>&nbsp;&nbsp;文章管理
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a href="message_management.html" role="button" class="menu-item-left">
+                  <span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;留言管理
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a href="admission_management.html" role="button" class="menu-item-left">
+                  <span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;录取管理
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a href="admin_management.html" role="button" class="menu-item-left">
+                  <span class="glyphicon glyphicon-bookmark"></span>&nbsp;&nbsp;管理员
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div><!--panel end-->
       </div>
     </div>
-    <div class="col-md-6">
-      <div class="panel panel-primary">
-        <div class="panel-heading">
-          留言管理
-        </div>
-        <div class="button-style">
-          <div><a href="#" class="btn btn-primary" role="button" style="margin-top: 50px">回复留言</a></div>
-          <div><a href="#" class="btn btn-primary" role="button" style="margin-top: 50px">隐藏留言</a></div>
-          <div><a href="#" class="btn btn-primary" role="button" style="margin-top: 50px">设置精选</a></div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="panel panel-primary">
-        <div class="panel-heading">
-          文章管理
-        </div>
-        <div class="button-style">
-          <div><a href="#" class="btn btn-primary" role="button" style="margin-top: 50px">添加文章</a></div>
-          <div><a href="#" class="btn btn-primary" role="button" style="margin-top: 50px">删除文章</a></div>
-          <div><a href="#" class="btn btn-primary" role="button" style="margin-top: 50px">编辑文章</a></div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="panel panel-primary">
-        <div class="panel-heading">
-          录取信息管理
-        </div>
-        <div class="button-style">
-          <div><a href="#" class="btn btn-primary" role="button" style="margin-top: 50px">添加录取信息</a></div>
-          <div><a href="#" class="btn btn-primary" role="button" style="margin-top: 50px">删除录取信息</a></div>
-          <div><a href="#" class="btn btn-primary" role="button" style="margin-top: 50px">修改录取信息</a></div>
+    <div class="col-md-10">
+      <div id="page-wrapper">
+        <div class="thumbnail">
+          <img src="__ADMIN__/images/admin.jpg">
+          <div class="caption">
+            <h3>管理员：{$Think.session.name}</h3>
+          </div>
         </div>
       </div>
     </div>
@@ -98,6 +97,62 @@
 <!--注意，jQuery一定要在Bootstrap之前，这是因为Bootstrap使用了jQuery-->
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script>
+  $(function () {
+    $(".panel-heading").click(function (e) {
+      /*切换折叠指示图标*/
+      $(this).find("span").toggleClass("glyphicon-chevron-down");
+      $(this).find("span").toggleClass("glyphicon-chevron-up");
+    });
+  });
+</script>
+
+<script>
+  // 配合ThinkPHP和ajax实现点击左边菜单栏局部更新右边内容显示
+  $(function(){
+    $("#collapseListGroup1 a").click(function(){
+      switch ($(this).index()) {
+        case 0:
+          jumpurl='{:U("Management/article_management")}';
+          break;
+        case 1:
+          jumpurl='{:U("Management/message_management")}';
+          break;
+        case 2:
+          jumpurl='{:U("Management/admission_management")}';
+          break;
+        case 3:
+          jumpurl='{:U("Management/admin_management")}';
+          break;
+        default:
+          break;
+      }
+      htmlobj=$.ajax({url:jumpurl, async:false});
+      $("#page-wrapper").html(htmlobj.responseText);
+    });
+  });
+</script>
+
+<script>
+  // 配合ThinkPHP和ajax实现点击左边菜单栏局部更新右边内容显示
+  $(function(){
+    $("#page-wrapper a").click(function(){
+      switch ($(this).index()) {
+        case 0:
+          jumpurl='{:U("Management/article_management_list")}';
+          break;
+        case 1:
+          jumpurl='{:U("Management/message_management_add")}';
+          break;
+        default:
+          break;
+      }
+      htmlobj=$.ajax({url:jumpurl, async:false});
+      $("#page-wrapper").html(htmlobj.responseText);
+    });
+  });
+</script>
+
 </body>
 
 </html>
