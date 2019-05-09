@@ -8,6 +8,10 @@
   <link rel="stylesheet" href="css/bootstrap.min.css"/>
   <link rel="stylesheet" href="css/animate.css">
   <link rel="stylesheet" href="css/index.css">
+
+  <script src="ueditor/ueditor.config.js"></script>
+  <script src="ueditor/ueditor.all.min.js"></script>
+  <script src="ueditor/lang/zh-cn/zh-cn.js"></script>
 </head>
 
 <body>
@@ -56,23 +60,23 @@
           <div id="collapseListGroup1" class="panel-collapse collapse in" role="tabpanel"
                aria-labelledby="collapseListGroupHeading1">
             <ul class="list-group">
-              <li class="list-group-item active">
-                <a href="article_management.html" role="button" class="menu-item-left" >
+              <li class="list-group-item">
+                <a href="article_show.html" role="button" class="menu-item-left" >
                   <span class="glyphicon glyphicon-tasks"></span>&nbsp;&nbsp;文章管理
                 </a>
               </li>
               <li class="list-group-item">
-                <a href="message_management.html" role="button" class="menu-item-left">
+                <a href="message_show.html" role="button" class="menu-item-left">
                   <span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;留言管理
                 </a>
               </li>
               <li class="list-group-item">
-                <a href="admission_management.html" role="button" class="menu-item-left">
+                <a href="admission_show.html" role="button" class="menu-item-left">
                   <span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;录取管理
                 </a>
               </li>
               <li class="list-group-item">
-                <a href="admin_management.html" role="button" class="menu-item-left">
+                <a href="admin_show.html" role="button" class="menu-item-left">
                   <span class="glyphicon glyphicon-bookmark"></span>&nbsp;&nbsp;管理员
                 </a>
               </li>
@@ -83,43 +87,16 @@
     </div>
     <div class="col-md-10">
       <div id="page-wrapper">
-        <ul class="nav nav-tabs" id="article">
-          <li role="presentation" class="active"><a href="javascript:;">文章列表</a></li>
-          <li role="presentation"><a href="javascript:;">添加文章</a></li>
+        <ul class="nav nav-tabs">
+          <li role="presentation"><a href="article_show.html">文章列表</a></li>
+          <li role="presentation" class="active"><a href="article_add.html">添加文章</a></li>
         </ul>
-        <div class="table-responsive">
-          <table class="table">
-            <thead>
-            <tr>
-              <th>标题</th>
-              <th>添加日期</th>
-              <th>操作</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-              <td>我校召开电气与控制工程学院、电子信息与人工智能学院成立大会</td>
-              <td>2019-04-01</td>
-              <td>查看/编辑/删除</td>
-            </tr>
-            </tbody>
-            <tbody>
-            <tr>
-              <td>我校召开电气与控制工程学院、电子信息与人工智能学院成立大会</td>
-              <td>2019-04-01</td>
-              <td>查看/编辑/删除</td>
-            </tr>
-            </tbody>
-            <tbody>
-            <tr>
-              <td>我校召开电气与控制工程学院、电子信息与人工智能学院成立大会</td>
-              <td>2019-04-01</td>
-              <td>查看/编辑/删除</td>
-            </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+        <script id="editor" type="text/plain" style="height: 500px;"></script>
+        <script type="text/javascript">
+                var ue = UE.getEditor('editor');
+        </script>
+        <a href="#" type="button" class="btn btn-primary" style="margin-top: 25px;">发布文章</a>
+      </div> <!--end page-wrapper-->
     </div>
   </div>
 </div>
@@ -127,6 +104,8 @@
 <!--注意，jQuery一定要在Bootstrap之前，这是因为Bootstrap使用了jQuery-->
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+
+
 <script>
   $(function () {
     $(".panel-heading").click(function (e) {

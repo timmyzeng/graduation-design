@@ -121,3 +121,52 @@ systemctl start network.service
 完成管理员登录界面。关于后台记录[点击跳转](./后台流程全记录.md)
 
 修改前端展示页面的导航栏及快捷入口连接，将所有的前端展示连接起来。
+
+## 19.5.9
+
+在ajax替换的页面中使用ueditor编辑器，发现样式加载失败。
+
+![ueditor出现显示问题](毕设记录-ZZC.assets/1557371201034.png)
+
+通过排查发现是因为样式在ajax中进行了添加，但是 却没有执行。将js文件在index.html中添加，然后显示正常。
+
+然后又遇到新的问题，无法点击文章列表和添加文章切换。之前使用html方法，这个方法一直失败。后来使用了load方法九成宫了。这里浪费了好多的时间。但还是有问题，多次点击文章管理按钮，第二次以上添加文章中的ueditor样式显示还是异常。
+
+![使用load方法](毕设记录-ZZC.assets/1557374906778.png)
+
+要被弄死了，简直浪费时间。ueditor中出现第一次加载成功，第二次失败的问题。失败截图如下：
+
+![二次加载失败](毕设记录-ZZC.assets/1557393412624.png)
+
+一开始以为是js中的load对script加载失败，查找很多资料都发现不是。后来怀疑是ueditor的问题。一看网上有很多的教程。常见的方法有以下两种：
+
+```js
+jQuery(function($) {
+    UE.getEditor('_editor').render('_editor')
+)}
+       
+jQuery(function($) {
+    UE.delEditor('_editor');
+    var ue = UE.getEditor('_editor');
+)}
+```
+
+问题是：第一个会在第一次加载页面的时候生成两个编辑器。第二个方法直接失败。后来找到：[完美解决方法](https://blog.csdn.net/wslpeter1987/article/details/76530075)
+
+```js
+var editor = new UE.ui.Editor(opt);
+editor.render(id1);
+```
+
+通过查看源代码找到getEditor()方法第一次是调用了ui方法，用于加载框架，再使用render方法创建编辑框。所以将其分开，可以让第二次加载的时候将缓存的ui重新生成一遍，这样就可以解决问题。
+
+最终修改出来的添加文章页面如下：
+
+![添加页面效果图](毕设记录-ZZC.assets/1557395057544.png)
+
+
+
+从添加文章页面添加内容保存到数据库成功，此时还没有设置附件选项。
+
+![添加内容成功](毕设记录-ZZC.assets/1557404985152.png)
+
