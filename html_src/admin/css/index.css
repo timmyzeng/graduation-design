@@ -90,3 +90,22 @@ a.menu-item-left:hover {
 #collapseListGroup1 a {
   color: #000;
 }
+
+/*message_show*/
+#message_show div.panel-primary {
+  margin-top: 25px;
+}
+#message_show img{
+  width: 70px;
+  height: 70px;
+}
+#message_show div.media {
+  margin-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+#message_show hr {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+/*end of message_show*/

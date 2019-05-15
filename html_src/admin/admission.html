@@ -8,10 +8,6 @@
   <link rel="stylesheet" href="css/bootstrap.min.css"/>
   <link rel="stylesheet" href="css/animate.css">
   <link rel="stylesheet" href="css/index.css">
-
-  <script src="ueditor/ueditor.config.js"></script>
-  <script src="ueditor/ueditor.all.min.js"></script>
-  <script src="ueditor/lang/zh-cn/zh-cn.js"></script>
 </head>
 
 <body>
@@ -87,16 +83,46 @@
     </div>
     <div class="col-md-10">
       <div id="page-wrapper">
-        <ul class="nav nav-tabs">
-          <li role="presentation"><a href="article_show.html">文章列表</a></li>
-          <li role="presentation" class="active"><a href="article_add.html">添加文章</a></li>
+        <ul class="nav nav-tabs" id="admission">
+          <li role="presentation" class="active"><a href="#">录取信息</a></li>
         </ul>
-        <script id="editor" type="text/plain" style="height: 500px;"></script>
-        <script type="text/javascript">
-                var ue = UE.getEditor('editor');
-        </script>
-        <a href="#" role="button" class="btn btn-primary" style="margin-top: 25px;">发布文章</a>
-      </div> <!--end page-wrapper-->
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+            <tr>
+              <th>姓名</th>
+              <th>省份</th>
+              <th>成绩</th>
+              <th style="width: 15%;">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>timmy</td>
+              <td>广东省</td>
+              <td>560分</td>
+              <td>编辑/删除</td>
+            </tr>
+            </tbody>
+            <tbody>
+            <tr>
+              <td>timmy</td>
+              <td>广东省</td>
+              <td>560分</td>
+              <td>编辑/删除</td>
+            </tr>
+            </tbody>
+            <tbody>
+            <tr>
+              <td>timmy</td>
+              <td>广东省</td>
+              <td>560分</td>
+              <td>编辑/删除</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -104,8 +130,6 @@
 <!--注意，jQuery一定要在Bootstrap之前，这是因为Bootstrap使用了jQuery-->
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-
-
 <script>
   $(function () {
     $(".panel-heading").click(function (e) {
@@ -116,6 +140,6 @@
   });
 </script>
 
-
 </body>
+
 </html>

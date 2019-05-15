@@ -62,17 +62,17 @@
                 </a>
               </li>
               <li class="list-group-item">
-                <a href="message_show.html" role="button" class="menu-item-left">
+                <a href="message.html" role="button" class="menu-item-left">
                   <span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;留言管理
                 </a>
               </li>
               <li class="list-group-item">
-                <a href="admission_show.html" role="button" class="menu-item-left">
+                <a href="admission.html" role="button" class="menu-item-left">
                   <span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;录取管理
                 </a>
               </li>
               <li class="list-group-item">
-                <a href="admin_show.html" role="button" class="menu-item-left">
+                <a href="admin.html" role="button" class="menu-item-left">
                   <span class="glyphicon glyphicon-bookmark"></span>&nbsp;&nbsp;管理员
                 </a>
               </li>
@@ -81,59 +81,87 @@
         </div><!--panel end-->
       </div>
     </div>
-    <div class="col-md-10">
+    <div class="col-md-10" id="message_show">
       <div id="page-wrapper">
         <ul class="nav nav-tabs" id="article">
           <li role="presentation" class="active"><a href="article_show.html">留言列表</a></li>
         </ul>
-        <div class="panel panel-primary">
+        <!--留言板-->
+        <div class="media">
+          <div class="media-left">
+            <img class="media-object" src="images/user1.jpg" alt="">
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">timmy
+              <small>&nbsp;&nbsp;发表于：2019.5.3</small>
+            </h4>
+            <p>学科：文理<br/>省份：北京市</p>
+            <p>我想问一下北京考我们学校好考吗？</p>
+          </div>
+          <div style="text-align: center;">
+            <a href="#" role="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">回复留言</a>
+            <a href="#" role="button" class="btn btn-danger">删除留言</a>
+          </div>
+          <!--modal-->
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="margin-top: 100px">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <div class="media">
+                    <div class="media-left">
+                      <img class="media-object" src="images/user1.jpg" alt="">
+                    </div>
+                    <div class="media-body">
+                      <h4 class="media-heading">timmy
+                        <small>&nbsp;&nbsp;发表于：2019.5.3</small>
+                      </h4>
+                      <p>学科：文理<br/>省份：北京市</p>
+                      <p>我想问一下北京考我们学校好考吗？</p>
+                    </div>
+                    <hr/>
+                    <form action="#" role="form" method="post">
+                      <label></label>
+                      <textarea rows="10" cols="74" style="resize: none;" placeholder="在此回复留言" autofocus></textarea>
+                      <div style="text-align: center;">
+                        <a href="#" role="button" class="btn btn-primary" style="margin-top: 10px">确认回复</a>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!--end of modal-->
 
-          <!--留言板-->
-          <div class="media">
-            <div class="media-left">
-              <img class="media-object" src="images/user1.jpg" alt="">
-            </div>
-            <div class="media-body">
-              <h4 class="media-heading">timmy
-                <small>&nbsp;&nbsp;发表于：2019.5.3</small>
-              </h4>
-              <p>学科：文理<br/>省份：北京市</p>
-              <p>我想问一下北京考我们学校好考吗？</p>
-              <p>查看并回复/删除留言</p>
-            </div>
+        <hr>
+        <!--留言板-->
+        <div class="media">
+          <div class="media-left">
+            <img class="media-object" src="images/user2.jpg" alt="">
           </div>
-          <hr>
-          <!--留言板-->
-          <div class="media">
-            <div class="media-left">
-              <img class="media-object" src="images/user2.jpg" alt="">
-            </div>
-            <div class="media-body">
-              <h4 class="media-heading">Lily
-                <small>&nbsp;&nbsp;发表于：2019.5.3</small>
-              </h4>
-              <p>学科：艺术<br/>省份：福建省</p>
-              <p>不知道今年福建省艺术生招多少个呢？</p>
-              <p>查看并回复/删除留言</p>
-            </div>
+          <div class="media-body">
+            <h4 class="media-heading">Lily
+              <small>&nbsp;&nbsp;发表于：2019.5.3</small>
+            </h4>
+            <p>学科：艺术<br/>省份：福建省</p>
+            <p>不知道今年福建省艺术生招多少个呢？</p>
           </div>
-          <hr>
-          <!--留言板-->
-          <div class="media">
-            <div class="media-left">
-              <img class="media-object" src="images/user4.jpg" alt="">
-            </div>
-            <div class="media-body">
-              <h4 class="media-heading">士兵出击
-                <small>&nbsp;&nbsp;发表于：2019.5.3</small>
-              </h4>
-              <p>学科：机械<br/>省份：上海市</p>
-              <p>今年上海市490分进陕西科技大学的机械专业可能性大吗？</p>
-              <p>查看并回复/删除留言</p>
-            </div>
-          </div>
-          <hr>
         </div>
+        <hr>
+        <!--留言板-->
+        <div class="media">
+          <div class="media-left">
+            <img class="media-object" src="images/user4.jpg" alt="">
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">士兵出击
+              <small>&nbsp;&nbsp;发表于：2019.5.3</small>
+            </h4>
+            <p>学科：机械<br/>省份：上海市</p>
+            <p>今年上海市490分进陕西科技大学的机械专业可能性大吗？</p>
+          </div>
+        </div>
+        <hr>
       </div>
     </div>
   </div>

@@ -3,27 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="c23fdc0a-4fba-4d3a-80ee-014de8e1e618" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../admin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../admin/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../admin/article_management.html" beforeDir="false" afterPath="$PROJECT_DIR$/../admin/article_show.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../admin/article_management_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/../admin/article_add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../admin/article_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/../admin/article_add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../admin/article_show.html" beforeDir="false" afterPath="$PROJECT_DIR$/../admin/article_show.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../admin/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/../admin/css/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../admin/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../admin/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../admin/message_show.html" beforeDir="false" afterPath="$PROJECT_DIR$/../admin/message.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../后台流程全记录.assets/1556684956750.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../后台流程全记录.assets/1556685080246.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../后台流程全记录.assets/1556690958591.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../后台流程全记录.assets/1556691787376.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../后台流程全记录.assets/1556691809014.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../后台流程全记录.assets/1556692128596.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../后台流程全记录.assets/1556692131059.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../后台流程全记录.assets/1556692183700.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../后台流程全记录.assets/1557050559802.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../后台流程全记录.assets/1557050682674.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../后台流程全记录.assets/1557052643057.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../后台流程全记录.assets/1557111804292.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../后台流程全记录.assets/1557113782463.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../后台流程全记录.assets/1557132237412.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../后台流程全记录.assets/1557152789522.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../后台流程全记录.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../后台流程全记录.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../毕设记录-ZZC.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../毕设记录-ZZC.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../页面设计.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../页面设计.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -39,46 +24,48 @@
     <session id="-497010030">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="7" />
           <entry key="project.open.time.0" value="2" />
           <entry key="project.open.time.1" value="2" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.3" value="1" />
-          <entry key="project.opened" value="5" />
+          <entry key="project.opened" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="1" />
-          <entry key="html" value="5" />
+          <entry key="css" value="3" />
+          <entry key="html" value="8" />
           <entry key="js" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="1" />
-          <entry key="HTML" value="5" />
+          <entry key="CSS" value="3" />
+          <entry key="HTML" value="8" />
           <entry key="JavaScript" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="11" />
+          <entry key="html" value="66" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="11" />
+          <entry key="HTML" value="66" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="45" column="44" lean-forward="true" selection-start-line="45" selection-start-column="44" selection-end-line="45" selection-end-column="44" />
+            <state relative-caret-position="362">
+              <caret line="51" column="33" lean-forward="true" selection-start-line="51" selection-start-column="33" selection-end-line="51" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -86,8 +73,21 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/qa_message_add.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1395">
-              <caret line="125" column="14" selection-start-line="125" selection-start-column="14" selection-end-line="125" selection-end-column="14" />
+            <state relative-caret-position="31">
+              <caret line="133" column="24" lean-forward="true" selection-start-line="133" selection-start-column="24" selection-end-line="133" selection-end-column="24" />
+              <folding>
+                <element signature="n#style#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#section#1;n#article#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#form#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#section#1;n#article#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/message.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="530">
+              <caret line="108" column="26" lean-forward="true" selection-start-line="108" selection-start-column="26" selection-end-line="108" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -95,19 +95,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/qa_message_show.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="139" column="20" lean-forward="true" selection-start-line="139" selection-start-column="20" selection-end-line="139" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/inquiry_admission_result.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="778">
-              <caret line="131" column="16" selection-start-line="120" selection-start-column="10" selection-end-line="131" selection-end-column="16" />
+            <state relative-caret-position="4495">
+              <caret line="145" column="30" selection-start-line="145" selection-start-column="30" selection-end-line="145" selection-end-column="30" />
               <folding>
-                <element signature="n#style#0;n#button#0;n#a#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#1;n#article#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#5036#5042#0" expanded="true" />
+                <element signature="e#5042#5048#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -118,6 +110,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>button</find>
+      <find>texta</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -127,6 +120,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/qa_message_show.html" />
       </list>
     </option>
   </component>
@@ -137,8 +131,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="642" />
-    <option name="y" value="-20" />
+    <option name="x" value="-7" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -156,6 +149,11 @@
             <path>
               <item name="home" type="b2602c69:ProjectViewProjectNode" />
               <item name="home" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="home" type="b2602c69:ProjectViewProjectNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -216,17 +214,19 @@
       <workItem from="1557058413275" duration="3828000" />
       <workItem from="1557130060732" duration="1770000" />
       <workItem from="1557393897112" duration="1135000" />
+      <workItem from="1557455207869" duration="2709000" />
+      <workItem from="1557753556477" duration="1240000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9655000" />
+    <option name="totallyTimeSpent" value="13604000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16174921" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14805058" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -265,34 +265,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/qa_message_show.html">
+    <entry file="file://$PROJECT_DIR$/inquiry_admission_result.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="139" column="20" lean-forward="true" selection-start-line="139" selection-start-column="20" selection-end-line="139" selection-end-column="20" />
+        <state relative-caret-position="437">
+          <caret line="120" column="20" selection-start-line="120" selection-start-column="20" selection-end-line="120" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/profile_teacher.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="45" column="44" lean-forward="true" selection-start-line="45" selection-start-column="44" selection-end-line="45" selection-end-column="44" />
+        <state relative-caret-position="806">
+          <caret line="137" column="112" selection-start-line="137" selection-start-column="112" selection-end-line="137" selection-end-column="112" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qa_message_show.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4495">
+          <caret line="145" column="30" selection-start-line="145" selection-start-column="30" selection-end-line="145" selection-end-column="30" />
+          <folding>
+            <element signature="e#5036#5042#0" expanded="true" />
+            <element signature="e#5042#5048#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/message.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="530">
+          <caret line="108" column="26" lean-forward="true" selection-start-line="108" selection-start-column="26" selection-end-line="108" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/qa_message_add.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1395">
-          <caret line="125" column="14" selection-start-line="125" selection-start-column="14" selection-end-line="125" selection-end-column="14" />
+        <state relative-caret-position="31">
+          <caret line="133" column="24" lean-forward="true" selection-start-line="133" selection-start-column="24" selection-end-line="133" selection-end-column="24" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#section#1;n#article#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#form#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#section#1;n#article#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inquiry_admission_result.html">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="778">
-          <caret line="131" column="16" selection-start-line="120" selection-start-column="10" selection-end-line="131" selection-end-column="16" />
-          <folding>
-            <element signature="n#style#0;n#button#0;n#a#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#1;n#article#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="362">
+          <caret line="51" column="33" lean-forward="true" selection-start-line="51" selection-start-column="33" selection-end-line="51" selection-end-column="33" />
         </state>
       </provider>
     </entry>
